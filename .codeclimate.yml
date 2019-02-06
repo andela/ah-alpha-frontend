@@ -1,2 +1,3 @@
 exclude_patterns:
 - "src/serviceWorker.js"
+- "**/*.test.js"
