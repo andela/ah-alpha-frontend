@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./components/Home";
 import Login from "./components/Login";
 import store from "./redux/store";
-import "./App.css";
+import "./App.scss";
 
 // Functional component
 import Navbar from "./components/Navbar";
