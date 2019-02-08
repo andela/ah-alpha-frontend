@@ -8,7 +8,38 @@
     },
     "rules": {
       "react/jsx-filename-extension": [1, {"extensions": [".js"]}],
-      "quotes": ["error", "double"]
+      "quotes": ["error", "double"],
+      "comma-dangle": ["error", "never"],
+      "no-unused-vars": [
+      "error",
+      {
+        "vars": "local",
+        "args": "none"
+      }
+    ],
+    "react/forbid-prop-types": [
+      "error",
+      {
+        "forbid": ["any"],
+        "checkContextTypes": false,
+        "checkChildContextTypes": true
+      }
+    ],
+    "react/jsx-one-expression-per-line": [
+      0,
+      {
+        "allow": "single-child"
+      }
+    ],
+    "semi": ["error", "always"],
+    "linebreak-style": ["error", "unix"],
+    "no-multiple-empty-lines": [
+      "error",
+      {
+        "max":1,
+        "maxEOF": 0
+      }
+    ]
 
     }
   }
