@@ -1,4 +1,4 @@
-[![Maintainability](https://api.codeclimate.com/v1/badges/9ec787d03742d3d3fd8d/maintainability)](https://codeclimate.com/github/andela/ah-alpha-frontend/maintainability)   <a href="https://codeclimate.com/github/andela/ah-alpha-frontend/test_coverage"><img src="https://api.codeclimate.com/v1/badges/9ec787d03742d3d3fd8d/test_coverage" /></a>
+[![Maintainability](https://api.codeclimate.com/v1/badges/9ec787d03742d3d3fd8d/maintainability)](https://codeclimate.com/github/andela/ah-alpha-frontend/maintainability)   <a href="https://codeclimate.com/github/andela/ah-alpha-frontend/test_coverage"><img src="https://api.codeclimate.com/v1/badges/9ec787d03742d3d3fd8d/test_coverage" /></a> <img src="https://img.shields.io/badge/reviewed%20by-Hound-blueviolet.svg" alt="hound"/> <img src="https://img.shields.io/badge/Team-Alpha-green.svg" alt="team"/>
 
 
 
