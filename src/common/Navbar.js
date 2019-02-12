@@ -17,16 +17,18 @@ const Navbar = () => (
             <input type="text" placeholder="Search..." />
           </div>
         </div>
-        {!localStorage.getItem("token")
-        || localStorage.getItem("token") === undefined ? (
+        {!localStorage.getItem("token") ||
+        localStorage.getItem("token") === undefined ? (
           <div className="item">
             <Login />
           </div>
-          ) : (
-            <div className="item" id="logout">
-              <a href="#" onClick={logout}>Log out</a>
-            </div>
-          )}
+        ) : (
+          <div className="item" id="logout">
+            <a href="#" onClick={logout}>
+              Log out
+            </a>
+          </div>
+        )}
       </div>
     </div>
   </div>

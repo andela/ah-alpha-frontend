@@ -40,7 +40,7 @@ export class LoginForm extends Component {
     this.setState({
       [e.target.name]: e.target.value
     });
-  };
+  }
 
   onSubmit(e) {
     e.preventDefault();
@@ -53,7 +53,7 @@ export class LoginForm extends Component {
 
     this.props.loginUser(userData);
     this.setState({ loaded: false });
-  };
+  }
 
   render() {
     const errors = this.props.errors.errors
