@@ -45,3 +45,4 @@ export const loginReducer = (state = initialState, action) => {
 };
 
 export default loginReducer;
+export const setUsername = () => localStorage.getItem("username");

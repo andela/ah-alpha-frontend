@@ -7,6 +7,7 @@
     "node": true
   },
   "rules": {
+    "react/prop-types": 0,
     "react/jsx-filename-extension": [1, { "extensions": [".js"] }],
     "import/no-named-as-default": 0,
     "import/no-named-as-default-member": 0,

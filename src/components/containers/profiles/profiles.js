@@ -2,11 +2,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import { Link } from "react-router-dom";
 import { Grid, Image, Table } from "semantic-ui-react";
 import PropTypes from "prop-types";
-
-import { Link } from "react-router-dom";
-
+import Follow from "../Follow";
 import * as profileActions from "../../../actions/profileActions";
 
 const username = localStorage.getItem("username");
@@ -26,6 +25,7 @@ class Profile extends Component {
       <div>
         <Grid id="grid_system" centered columns={3}>
           <h2 id="username">{userProfile.username} </h2>
+          <Follow />
           <Grid.Column>
             <div id="button">
               <Link to="/profile-edit" id="the-btn">

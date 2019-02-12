@@ -36,7 +36,8 @@ class Navbar extends React.Component {
                     id="logout"
                     onClick={logout}
                   >
-                  Log Out
+                    <br />
+                    Logout
                   </button>
                   <DropdownImageTriggerExample />
                 </React.Fragment>

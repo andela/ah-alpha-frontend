@@ -18,6 +18,13 @@ describe("reducers", () => {
         token: null,
         username: null
       },
+      count: {
+        followers: [],
+        followers_count: 0,
+        following: [],
+        following_count: 0,
+        isUser: false
+      },
       registration: {},
       verification: {},
       socialAuth: { message: "" }

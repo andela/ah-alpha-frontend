@@ -41,6 +41,10 @@ describe("Profile with props: ", () => {
       },
       profiles: {
         profile: {}
+      },
+      count: {
+        followers_count: 0,
+        following_count: 0
       }
     });
     const wrapper = mount(

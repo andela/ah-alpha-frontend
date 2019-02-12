@@ -4,7 +4,6 @@ import * as type from "../../../actions/types";
 
 const payload = undefined;
 const data = undefined;
-const user = "ruiru";
 
 describe("profile reducer test ", () => {
   it("returns initialState ", () => {
