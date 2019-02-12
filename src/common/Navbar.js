@@ -1,12 +1,11 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-// eslint-disable-next-line import/named
 import { logout } from "../_helpers/history";
-import Login from "./authentication/Login";
+import Login from "../components/authentication/Login";
 
 const Navbar = () => (
   <div>
@@ -20,16 +19,19 @@ const Navbar = () => (
             <input type="text" placeholder="Search..." />
           </div>
         </div>
-        {!localStorage.getItem("token")
-        || localStorage.getItem("token") === undefined ? (
-          <div className="item">
-            <Login />
-          </div>
-          ) : (
-            <div className="item" id="logout">
-              <a onClick={logout}>Log out</a>
-            </div>
-          )}
+        {
+          !localStorage.getItem("token") || localStorage.getItem("token") === undefined
+            ? (
+              <div className="item">
+                <Login />
+              </div>
+            )
+            : (
+              <div className="item" id="logout">
+                <a onClick={logout}>Log out</a>
+              </div>
+            )
+        }
       </div>
     </div>
   </div>
