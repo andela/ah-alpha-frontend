@@ -4,5 +4,5 @@ export const history = createBrowserHistory();
 
 export const logout = () => {
   localStorage.clear();
-  history.go("/");
+  window.location.href = "/";
 };

@@ -2,5 +2,8 @@ export default {
   token: null,
   isLoggedIn: false,
   errors: {},
-  username: null
+  username: null,
+  profiles: {
+    profile: {}
+  }
 };

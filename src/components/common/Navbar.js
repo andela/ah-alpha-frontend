@@ -1,9 +1,10 @@
 import React from "react";
-import { Redirect } from "react-router";
 import RegistrationModal from "../containers/registration/Registration";
 import Login from "../authentication/Login";
 import { logout } from "../../_helpers/history";
+import DropdownImageTriggerExample from "./userOptions";
 
+// eslint-disable-next-line react/prefer-stateless-function
 class Navbar extends React.Component {
   render() {
     return (
@@ -17,7 +18,6 @@ class Navbar extends React.Component {
                 <input type="text" placeholder="Search..." />
               </div>
             </div>
-            {<Redirect to="/" />}
             {!localStorage.getItem("token")
             || localStorage.getItem("token") === undefined ? (
               <React.Fragment>
@@ -29,14 +29,17 @@ class Navbar extends React.Component {
                 </button>
               </React.Fragment>
               ) : (
-                <button
-                  type="button"
-                  className="item link-button"
-                  id="logout"
-                  onClick={logout}
-                >
-                Log Out
-                </button>
+                <React.Fragment>
+                  <button
+                    type="button"
+                    className="item link-button"
+                    id="logout"
+                    onClick={logout}
+                  >
+                  Log Out
+                  </button>
+                  <DropdownImageTriggerExample />
+                </React.Fragment>
               )}
           </div>
         </div>

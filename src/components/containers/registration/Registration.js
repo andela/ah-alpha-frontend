@@ -1,3 +1,8 @@
+/* eslint-disable consistent-return */
+/* eslint-disable react/prop-types */
+/* eslint-disable camelcase */
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable react/no-access-state-in-setstate */
 import React, { Component } from "react";
 import { Redirect } from "react-router";
 import { connect } from "react-redux";

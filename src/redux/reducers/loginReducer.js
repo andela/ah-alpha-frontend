@@ -1,8 +1,14 @@
 /* eslint-disable no-case-declarations */
 /* eslint-disable prefer-destructuring */
-import { LOGIN_REQUEST, LOGIN_ERROR, LOGIN_SUCCESS } from "../../actions/types";
+import {
+  LOGIN_REQUEST,
+  LOGIN_ERROR,
+  LOGIN_SUCCESS
+} from "../../actions/types";
+import initialState from "../store/initialState";
 
-const loginReducer = (state = {}, action) => {
+// eslint-disable-next-line import/prefer-default-export
+export const loginReducer = (state = initialState, action) => {
   switch (action.type) {
     case LOGIN_REQUEST:
       return {
