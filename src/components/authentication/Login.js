@@ -5,7 +5,7 @@ import LoginForm from "../containers/login/LoginForm";
 
 const Login = () => (
   <Modal
-    trigger={<div>Log in</div>}
+    trigger={<div>Login</div>}
     centered
     id="the-modal"
     style={{ display: "none" }}

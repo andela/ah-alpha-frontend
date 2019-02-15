@@ -17,6 +17,86 @@ input {
 a:hover {
   cursor: pointer;
 }
+#login-button {
+  width: 100%;
+  background: transparent;
+  font-weight: bolder;
+  font-size: 1.2em;
+  box-shadow: none !important;
+}
+
+input {
+  width: 100%;
+}
+
+#input-holder {
+  padding: 0;
+}
+
+.modals {
+  padding: 25px;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+#reg-input .field {
+  margin: 0;
+  padding: 0;
+  min-width: 100%;
+}
+
+#reg-input .field .input {
+  margin: 0.8em 0 0.8em 0;
+  padding: 0;
+  width: 100%;
+}
+
+#reg-header {
+  font-size: 2em;
+  font-weight: bolder;
+  margin: 1em 0 0 0 !important;
+  text-align: left !important;
+}
+
+#regModal div {
+  text-align: center;
+  width: 100%;
+  margin: 0;
+  padding: 0 5% 0 5%;
+}
+
+#regModal #regBtn {
+  color: black;
+  width: 100%;
+  margin: 0%;
+  background: transparent;
+  border: 1px;
+  height: 2.5em;
+  font-size: 1.2em;
+  margin: 0.8em 0 2em 0;
+  padding: 0 5% 0 5%;
+}
+
+#regModal .error {
+  color: red;
+}
+
+.link-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+
+.link-button:hover,
+.link-button:focus {
+  text-decoration: none;
+}
 
 .home {
   padding-top: 5%;

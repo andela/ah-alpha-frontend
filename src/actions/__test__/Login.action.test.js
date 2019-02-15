@@ -1,6 +1,6 @@
 import configureMockStore from "redux-mock-store";
 import thunk from "redux-thunk";
-import loginUser from "../loginActions";
+import { loginUser } from "../loginActions";
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
