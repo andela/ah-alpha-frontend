@@ -1,0 +1,9 @@
+export const FACEBOOK = "FACEBOOK_ACCESS_CODE";
+export const GOOGLE = "GOOGLE_ACCESS_CODE";
+export const TWITTER = "TWITTER_ACCESS_CODE";
+export const RECEIVE_DATA = "RECEIVE_DATA";
+export const FETCHING = "FETCHING";
+export const FETCH_FAILED = "FETCH_FAILED";
+export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
+export const LOGIN_ERROR = "LOGIN_ERROR";
+export const LOGIN_REQUEST = "LOGIN_REQUEST";

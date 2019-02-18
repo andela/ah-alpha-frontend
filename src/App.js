@@ -4,22 +4,22 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 // Class component
 import Home from "./components/Home";
-import Login from "./components/Login";
 import store from "./redux/store";
-import "./App.scss";
+import SuccessComponent from "./components/authentication/socialAuth/SuccessComponent";
+import "./assets/css/App.scss";
 
 // Functional component
-import Navbar from "./components/Navbar";
+import Navbar from "./common/Navbar";
 
 const App = () => (
   <Provider store={store}>
+    <SuccessComponent />
     <Router>
       <div className="App">
         <Navbar />
         <div>
           <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/login" component={Login} />
+            <Route path="/" component={Home} />
           </Switch>
         </div>
       </div>
