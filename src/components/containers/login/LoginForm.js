@@ -8,7 +8,6 @@
 /* eslint-disable arrow-parens */
 /* eslint-disable no-nested-ternary */
 import React, { Component } from "react";
-
 import PropTypes from "prop-types";
 import Loader from "react-loader";
 import { connect } from "react-redux";
@@ -108,6 +107,10 @@ export class LoginForm extends Component {
           <i className="sign in icon" />
           Log In
         </button>
+        <div>
+          <br /><br />
+          <a href="/forgotpwd">forgot password?</a>
+        </div>
       </form>
     );
   }

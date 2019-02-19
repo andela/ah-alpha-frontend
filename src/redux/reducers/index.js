@@ -7,6 +7,8 @@ import { registration, verification } from "./registration";
 import socialAuthFunction from "./socialAuth/SocialAuthReducer";
 import profiles from "./profile/profileReducer";
 import followReducer from "./follow/followReducer";
+import { passwordReset } from "./passwordReset/passwordReset";
+import { forgotPassword } from "./passwordReset/forgotPassword";
 
 const rootReducer = combineReducers({
   registration,
@@ -14,7 +16,9 @@ const rootReducer = combineReducers({
   socialAuth: socialAuthFunction,
   data: loginReducer,
   profiles,
-  count: followReducer
+  count: followReducer,
+  passwordReset,
+  forgotPassword
 });
 
 export default rootReducer;
