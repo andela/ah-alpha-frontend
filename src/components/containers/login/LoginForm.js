@@ -14,7 +14,7 @@ import PropTypes from "prop-types";
 import Loader from "react-loader";
 
 import { connect } from "react-redux";
-import loginUser from "../../../actions/loginActions";
+import { loginUser } from "../../../actions/loginActions";
 
 export class LoginForm extends Component {
   constructor(props) {
@@ -36,13 +36,13 @@ export class LoginForm extends Component {
     }
   }
 
-  onChange(e) {
+  onChange = e => {
     this.setState({
       [e.target.name]: e.target.value
     });
   };
 
-  onSubmit(e) {
+  onSubmit = e => {
     e.preventDefault();
     const userData = {
       user: {
@@ -83,7 +83,6 @@ export class LoginForm extends Component {
             value={this.state.email}
             onChange={this.onChange}
             placeholder="Enter your email"
-            id="input"
             required
           />
         </div>
@@ -96,7 +95,6 @@ export class LoginForm extends Component {
             value={this.state.password}
             onChange={this.onChange}
             placeholder="Enter your password"
-            id="input"
             required
           />
         </div>
@@ -132,7 +130,6 @@ const mapStateToProps = state => ({
   isLoggedIn: state.data.isLoggedIn,
   message: state.data.message
 });
-
 export default connect(
   mapStateToProps,
   { loginUser }

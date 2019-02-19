@@ -1,3 +1,5 @@
 src/serviceWorker.js
 coverage/
 __snapshots__/
+src/assets/css/semantic/*
+*.snap

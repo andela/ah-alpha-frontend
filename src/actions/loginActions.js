@@ -1,12 +1,13 @@
-import axios from "axios";
-
 import { history } from "../_helpers/history";
 
+// eslint-disable-next-line
 import { LOGIN_SUCCESS, LOGIN_ERROR } from "./types";
+import { postAxios } from "../api/postPromise";
+import { BASE_URL } from "./constants";
 
-const loginUser = userData => (dispatch) => {
-  axios
-    .post("https://ah-alpha.herokuapp.com/api/v1/users/login/", userData)
+// eslint-disable-next-line
+export const loginUser = userData => dispatch => {
+  postAxios(`${BASE_URL}/api/v1/users/login/`, userData)
     .then((response) => {
       dispatch({
         type: LOGIN_SUCCESS,
@@ -21,5 +22,3 @@ const loginUser = userData => (dispatch) => {
       payload: err.response.data
     }));
 };
-
-export default loginUser;

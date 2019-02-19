@@ -1,3 +1,4 @@
 exclude_patterns:
-- "src/serviceWorker.js"
-- "**/*.test.js"
+  - "src/serviceWorker.js"
+  - "**/*.test.js"
+  - "src/assets/css/semantic/*"
