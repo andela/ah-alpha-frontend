@@ -1,7 +1,7 @@
 import React from "react";
 import { Modal } from "semantic-ui-react";
-
-import LoginForm from "../containers/login/LoginForm";
+import SocialAuthComponent from "../containers/socialAuth/SocialAuthComponent";
+import LoginForm from "../../actions/LoginForm";
 
 const Login = () => (
   <Modal
@@ -21,8 +21,10 @@ const Login = () => (
       <div>
         <LoginForm />
       </div>
+      <SocialAuthComponent />
     </div>
   </Modal>
+
 );
 
 export default Login;

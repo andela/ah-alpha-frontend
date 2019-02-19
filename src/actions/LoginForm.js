@@ -1,4 +1,3 @@
-/* eslint-disable no-case-declarations */
 /* eslint-disable operator-linebreak */
 /* eslint-disable react/no-unused-state */
 /* eslint-disable react/destructuring-assignment */
@@ -12,9 +11,8 @@ import React, { Component } from "react";
 
 import PropTypes from "prop-types";
 import Loader from "react-loader";
-
 import { connect } from "react-redux";
-import { loginUser } from "../../../actions/loginActions";
+import loginUser from "./loginActions";
 
 export class LoginForm extends Component {
   constructor(props) {
@@ -73,7 +71,9 @@ export class LoginForm extends Component {
         )}
         {!this.props.message ? null : (
           <div className="ui success message">
-            <div className="header">{this.props.message}</div>
+            <div className="header">
+              {this.props.message}
+            </div>
           </div>
         )}
         <div className="ui large fluid long input" id="input-holder">

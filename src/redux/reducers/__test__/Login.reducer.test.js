@@ -6,7 +6,8 @@ describe("reducers", () => {
     expect(state).toEqual({
       data: {},
       registration: {},
-      verification: {}
+      verification: {},
+      socialAuth: { message: "" }
     });
   });
 });

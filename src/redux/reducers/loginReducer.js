@@ -10,9 +10,11 @@ const loginReducer = (state = {}, action) => {
         isLoading: true
       };
     case LOGIN_SUCCESS:
-      const token = action.payload.user.token;
+      const token = action.payload.users
+        ? action.payload.users.user.token : action.payload.user.token;
       localStorage.setItem("token", `Bearer ${token}`);
-      localStorage.setItem("username", action.payload.user.username);
+      localStorage.setItem("username", (action.payload.users
+        ? action.payload.users.user.username : action.payload.user.username));
       localStorage.setItem("isLoggedIn", true);
       return {
         ...state,
@@ -20,7 +22,8 @@ const loginReducer = (state = {}, action) => {
         errors: {},
         isLoggedIn: true,
         isLoading: false,
-        username: action.payload.user.username,
+        username: action.payload.users
+          ? action.payload.users.user.username : action.payload.user.username,
         message: "Successfully logged in."
       };
     case LOGIN_ERROR:
