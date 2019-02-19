@@ -28,4 +28,4 @@ src/**/*.css
 
 # snapshots
 */__snapshots__
-*.snap
+*.snap 

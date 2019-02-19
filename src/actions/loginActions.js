@@ -17,8 +17,12 @@ export const loginUser = userData => dispatch => {
         history.go("/");
       }, 1000);
     })
-    .catch(err => dispatch({
-      type: LOGIN_ERROR,
-      payload: err.response.data
-    }));
+    .catch((err) => {
+      dispatch({
+        type: LOGIN_ERROR,
+        payload: err.response.data
+      });
+    });
 };
+
+export default loginUser;

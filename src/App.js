@@ -7,7 +7,8 @@ import "react-toastify/dist/ReactToastify.css";
 
 // Class component
 import store from "./redux/store";
-import "./App.scss";
+import SuccessComponent from "./components/authentication/socialAuth/SuccessComponent";
+import "./assets/css/App.scss";
 
 // Functional component
 import Navbar from "./components/common/Navbar";
@@ -15,6 +16,7 @@ import Body from "./components/common/Body";
 
 const App = () => (
   <Provider store={store}>
+    <SuccessComponent />
     <Router>
       <div className="App">
         <Navbar />

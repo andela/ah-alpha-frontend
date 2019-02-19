@@ -4,7 +4,9 @@ import { Button, Header, Modal, Form, Icon } from "semantic-ui-react";
 class RegistrationForm extends Component {
   // eslint-disable-next-line
   formInput = field => {
-    const { type, onKeyDown, placeholder, value, error, name } = field;
+    const {
+      type, onKeyDown, placeholder, value, error, name
+    } = field;
 
     return (
       <Form.Input
