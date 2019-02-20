@@ -8,7 +8,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { PropTypes } from "prop-types";
-import Loader from "react-loaders";
 import Parser from "html-react-parser";
 import moment from "moment";
 import getOneArticle from "../../../actions/getOneArticleAction";
