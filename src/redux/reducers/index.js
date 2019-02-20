@@ -11,7 +11,7 @@ import followReducer from "./follow/followReducer";
 import { passwordReset } from "./passwordReset/passwordReset";
 import { forgotPassword } from "./passwordReset/forgotPassword";
 import getArticlesReducer from "./getArticlesReducer";
-import getOneArticleReducer from './getOneArticleReducer';
+import getOneArticleReducer from "./getOneArticleReducer";
 
 const rootReducer = combineReducers({
   registration,

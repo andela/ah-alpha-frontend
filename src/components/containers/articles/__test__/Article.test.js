@@ -6,9 +6,10 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import configureStore from "redux-mock-store";
 import thunk from "redux-thunk";
+import { Pagination, PaginationItem } from "semantic-ui-react";
 
 import { GetArticles } from "../Articles";
-import getArticles from '../../../../actions/getArticlesAction';
+import getArticles from "../../../../actions/getArticlesAction";
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
@@ -24,27 +25,24 @@ describe("Get all articles", () => {
     const wrapper = mount(
       <Provider store={store}>
         <BrowserRouter>
-          <GetArticles getArticles={getArticles}/>
+          <GetArticles getArticles={getArticles} />
         </BrowserRouter>
       </Provider>
     );
     expect(toJson(wrapper)).toMatchSnapshot();
+    expect(wrapper.find(Pagination).length).toBe(0);
   });
 });
 
 describe("Get component being rendered", () => {
   it("should be a get articles component", () => {
-    const tree = shallow(
-      <GetArticles getArticles={getArticles}/>
-    );
+    const tree = shallow(<GetArticles getArticles={getArticles} />);
     expect(tree).toMatchSnapshot();
   });
 });
 describe("Get component being rendered", () => {
   it("should be a get articles component", () => {
-    const tree = shallow(
-      <GetArticles getArticles={getArticles}/>
-    );
+    const tree = shallow(<GetArticles getArticles={getArticles} />);
     expect(tree).toMatchSnapshot();
   });
 });
@@ -57,4 +55,19 @@ describe("actions", () => {
   });
 });
 
-
+describe("should change active page", () => {
+  it("should move to two ", () => {
+    const mountedComponent = mount(<GetArticles getArticles={getArticles} />);
+    mountedComponent.setState({
+      count: 3,
+      page_size: 1
+    });
+    console.log(">>>>>>", mountedComponent.debug())
+    const secondItem = mountedComponent.find(".item").at(1);
+    console.log("sennnnn", secondItem);
+    secondItem.simulate("click", 2);
+   
+    // mountedComponent.instance().handlePaginationChange(2);
+    expect(mountedComponent.state("activePage")).toEqual(1);
+  });
+});
