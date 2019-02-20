@@ -71,6 +71,13 @@ a:hover {
   color: black;
   width: 100%;
   margin: 0%;
+}
+
+.body {
+  width: 750px;
+}
+
+.legend {
   background: transparent;
   border: 1px;
   height: 2.5em;
@@ -289,4 +296,24 @@ $primary-color: black;
 
 .ui-alerts {
   z-index: 0 !important;
+}
+
+#main {
+  height: 150px;
+}
+
+.pull-right {
+  float: right;
+}
+
+.read-time {
+  color: grey;
+}
+
+.slider {
+  height: 70vh !important;
+}
+
+#hover:hover {
+  background: rgb(91, 253, 91) !important;
 }

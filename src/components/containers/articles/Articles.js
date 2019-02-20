@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { PropTypes } from "prop-types";
-import { Card, Rating, Image, Pagination, Icon } from "semantic-ui-react";
+import { Card, Image, Pagination, Icon } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import { Carousel } from "react-responsive-carousel";
+import moment from "moment";
 
 import getArticles from "../../../actions/getArticlesAction";
 
@@ -57,10 +58,14 @@ export class GetArticles extends Component {
               <p>No articles yet</p>
             ) : (
               <div>
-                <Carousel autoPlay infiniteLoop interval={1000}>
+                <Carousel autoPlay infiniteLoop interval={1000} id="slider">
                   {this.state.articles.map(article => (
                     <div>
-                      <img src={article.image_path} />
+                      <img
+                        src={article.image_path}
+                        style={{ height: "auto" }}
+                        alt=""
+                      />
                       <h1 className="legend" id="carousel-title">
                         <Link
                           to={{
@@ -95,25 +100,17 @@ export class GetArticles extends Component {
                               </Card.Header>
                               <Card.Meta>
                                 <span className="small date">
-                                  {article.created_at}
+                                  by {article.author.username},{" "}
+                                  {moment(
+                                    article.created_at,
+                                    "YYYYMMDD"
+                                  ).fromNow()}
                                 </span>
+                                <div className="pull-right">
+                                  {article.rating}
+                                  <i className="yellow star icon" />
+                                </div>
                               </Card.Meta>
-                            </Card.Content>
-                            <Card.Content extra>
-                              <div>
-                                {article.like_count} likes{" "}
-                                {article.dislike_count} dislikes
-                              </div>
-                              <br />
-                              <div>
-                                <Rating
-                                  maxRating={5}
-                                  defaultRating={article.rating}
-                                  disabled
-                                  icon="star"
-                                  size="large"
-                                />
-                              </div>
                             </Card.Content>
                             <Card.Content extra>
                               <ul className="tags">
@@ -138,7 +135,14 @@ export class GetArticles extends Component {
             )}
           </div>
         ) : (
-          <alphaLoader />
+          <div className="ui segment">
+            <div className="ui active inverted dimmer">
+              <div className="ui large text loader">Loading</div>
+            </div>
+            <p />
+            <p />
+            <p />
+          </div>
         )}
         {this.state.count > this.state.page_size && (
           <div className="footer" id="pagination">
