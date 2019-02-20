@@ -2,13 +2,15 @@ import React from "react";
 import { Dropdown, Image } from "semantic-ui-react";
 
 const trigger = (
-  <span>
-    <Image
-      avatar
-      src="https://res.cloudinary.com/dxecwuaqd/image/upload/c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1550079584/o75xgubltk4hso90l9jt.png"
-    />{" "}
-    Welcome
-  </span>
+  <div>
+    <br />
+    <span>
+      <Image
+        avatar
+        src="https://res.cloudinary.com/dxecwuaqd/image/upload/c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1550079584/o75xgubltk4hso90l9jt.png"
+      />{" "}
+    </span>
+  </div>
 );
 
 const options = [

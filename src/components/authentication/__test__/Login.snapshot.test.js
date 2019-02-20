@@ -8,9 +8,7 @@ configure({ adapter: new Adapter() });
 
 describe("Login component being rendered", () => {
   it("should be a login component", () => {
-    const tree = shallow(
-      <Login />
-    );
+    const tree = shallow(<Login />);
     expect(tree).toMatchSnapshot();
   });
 });
