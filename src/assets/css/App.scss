@@ -234,7 +234,7 @@ $primary-color: black;
 
 .single-article {
   padding-top: 5%;
-  padding-left: 5%;
+  padding-left: 8%;
 }
 
 .single-article .intro-author {
@@ -286,7 +286,6 @@ $primary-color: black;
   font-weight: 400;
 }
 
-
 #pagination {
   padding-top: 9%; 
   padding-left: 30% !important;
@@ -295,3 +294,8 @@ $primary-color: black;
   width: 100%;
 }
 
+.articleEditor{
+  margin: auto;
+  background: white;
+  padding: 8% 10%;
+}

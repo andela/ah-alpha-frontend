@@ -1,5 +1,6 @@
 import urlPath from "../../api/axiosConfig";
 import { FOLLOW_UNFOLLOW_SUCCESS, FOLLOWERS_COUNT, FOLLOWING_COUNT } from "../types";
+import * as profileActions from "../profileActions";
 
 export const getFollowersSuccess = payload => ({
   type: FOLLOWERS_COUNT,
@@ -43,6 +44,7 @@ export const followHandler = (username, currentUser) => (dispatch) => {
     .post(`/api/v1/profiles/${username}/follow`)
     .then((response) => {
       dispatch(followHandlerSuccess(response.data.profile[0]));
+      dispatch(profileActions.getProfile(username));
       dispatch(followingCount(currentUser));
       dispatch(followersCount(currentUser));
     })

@@ -1,9 +1,10 @@
 import { RESET_SUCCESS, RESET_FAIL } from "./types";
 import axiosConfig from "./axiosConfig";
 
+export const success = message => ({ type: RESET_SUCCESS, payload: message });
+export const failure = error => ({ type: RESET_FAIL, payload: error });
+
 const resetPassword = data => (dispatch) => {
-  const success = message => ({ type: RESET_SUCCESS, payload: message });
-  const failure = error => ({ type: RESET_FAIL, payload: error });
   return axiosConfig
     .request({
       method: "patch",

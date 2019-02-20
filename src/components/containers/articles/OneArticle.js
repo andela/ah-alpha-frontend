@@ -5,11 +5,14 @@
 /* eslint-disable react/no-unused-prop-types */
 /* eslint-disable react/jsx-no-comment-textnodes */
 /* eslint-disable react/destructuring-assignment */
+/* eslint-disable object-shorthand */
+/* eslint-disable react/prop-types */
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { PropTypes } from "prop-types";
 import Parser from "html-react-parser";
 import moment from "moment";
+import FollowButton from "../Follow/followButton";
 import getOneArticle from "../../../actions/getOneArticleAction";
 
 export class GetOneArticle extends Component {
@@ -73,12 +76,7 @@ export class GetOneArticle extends Component {
                       article.author.username ? (
                         <div />
                         ) : (
-                          <button
-                            className="ui basic large button"
-                            id="user-follow-btn"
-                          >
-                        Follow
-                          </button>
+                          <FollowButton following={this.props.following}  author={ article.author.username} />
                         )}
                     <br />
                     <div className="date-time">
@@ -139,7 +137,10 @@ const mapStateToProps = state => ({
   fetchOneArticle: state.fetchOneArticle,
   isLoading: state.isLoading,
   article: state.article,
-  errors: state.message
+  errors: state.message,
+  following: state.profiles.profile.following,
+  image_path: state.profiles.profile.image
+
 });
 
 export default connect(

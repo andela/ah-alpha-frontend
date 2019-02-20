@@ -19,6 +19,9 @@ const options = [
     key: "settings", text: "profile", icon: "user", href: "/profile"
   },
   {
+    key: "create-article", text: "New article", icon: "write", href: "/create-article"
+  },
+  {
     key: "sign-out", text: "Home", icon: "home", href: "/"
   }
 ];

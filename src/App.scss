@@ -1,0 +1,109 @@
+#button {
+    width: 100%;
+}
+
+
+input {
+    width: 100%;
+}
+
+#input-holder  {
+    padding: 0;
+}
+
+
+.modals {
+    padding: 25px;
+}
+
+a:hover{
+    cursor: pointer;
+}
+
+.home {
+    padding-top: 5%;
+}
+
+$primary-color: black;
+@import 'loaders.css/src/animations/semi-circle-spin.scss';
+
+.loader-hidden {
+  display: none;
+}
+.loader-active {
+  display: block;
+}
+
+
+.tags {
+    list-style-type: none;
+    text-align: left;
+    padding: 1%;
+}
+
+.tags .tag{
+    float: left;
+    border: 1px solid rgb(173, 171, 171);
+    padding: 2%;
+    border-radius: 15px;
+    color: black;
+    background: white;
+    transition: all .3s;
+}
+
+.tags .tag:hover {
+    border: 1px solid black;
+    cursor: pointer;
+    background: rgb(233, 233, 233);
+}
+
+.mini-tags {
+    list-style-type: none;
+    text-align: left;
+    padding: 1%;
+}
+
+
+.mini-tags .mini-tag{
+    float: left;
+    border: 1px solid rgb(173, 171, 171);
+    padding: 5px;
+    border-radius: 15px;
+    color: black;
+    background: white;
+    transition: all .3s;
+}
+
+.mini-tags .mini-tag:hover {
+    border: 1px solid black;
+    cursor: pointer;
+    background: rgb(233, 233, 233);
+}
+
+.article-content {
+    padding-top: 25px;
+    padding-left: 25%;
+    padding-right: 15%;
+}
+
+.single-article {
+    padding-top: 5%;
+    padding-left: 5%;
+}
+
+.single-article .intro-author {
+    color: grey;
+    padding-left: 77%;
+}
+
+.single-article .intro-image {
+    max-width: 0%;
+}
+
+.single-card {
+    margin: 1%;
+}
+
+.intro-content {
+    padding-left: 200px;
+}
