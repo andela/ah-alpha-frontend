@@ -12,7 +12,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Loader from "react-loader";
 import { connect } from "react-redux";
-import loginUser from "./loginActions";
+import loginUser from "../../../actions/loginActions";
 
 export class LoginForm extends Component {
   constructor(props) {

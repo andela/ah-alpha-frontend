@@ -1,5 +1,9 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/destructuring-assignment */
 import React, { Component } from "react";
-import { Button, Header, Modal, Form, Icon } from "semantic-ui-react";
+import {
+  Button, Header, Modal, Form, Icon
+} from "semantic-ui-react";
 
 class RegistrationForm extends Component {
   // eslint-disable-next-line

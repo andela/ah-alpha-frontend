@@ -1,7 +1,9 @@
+/* eslint-disable import/no-named-as-default-member */
+/* eslint-disable import/no-named-as-default */
 import React from "react";
 import { Modal } from "semantic-ui-react";
 import SocialAuthComponent from "../containers/socialAuth/SocialAuthComponent";
-import LoginForm from "../../actions/LoginForm";
+import LoginForm from "../containers/login/LoginForm";
 
 const Login = () => (
   <Modal
