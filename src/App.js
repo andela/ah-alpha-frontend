@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import "semantic-ui-css/semantic.min.css";
+import "./assets/css/index.scss";
 
 // Class component
 import Home from "./components/Home";
@@ -20,7 +21,9 @@ import ResetForm from "./components/containers/passwordReset/ForgotPassword";
 import ResetPassword from "./components/containers/passwordReset/ResetPassword";
 import "./assets/css/App.scss";
 import "./assets/css/reset.scss";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 // Functional component
+import OneArticle from "./components/SingleArticle";
 import Navbar from "./components/common/Navbar";
 
 const App = () => (
@@ -40,6 +43,7 @@ const App = () => (
             <Route path="/following" component={followingProfile} />
             <Route path="/forgotpwd" component={ResetForm} />
             <Route path="/reset-password/:resetpwdtoken" component={ResetPassword} />
+            <Route path="/:slug" exact component={OneArticle} />
           </Switch>
         </div>
       </div>
