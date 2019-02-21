@@ -23,16 +23,17 @@ const successOnLoad = successPayload => ({
   isLoading: false
 });
 
-const getArticles = () => (dispatch) => {
+const getArticles = (page = 1, page_size = 15) => async (dispatch) => {
   dispatch(loadingResource());
-  return axios
-    .get("https://ah-alpha-staging.herokuapp.com/api/v1/articles/")
-    .then((response) => {
-      dispatch(successOnLoad(response.data.results));
-    })
-    .catch((err) => {
-      dispatch(errorOnLoad(err.response.data));
-    });
+  try {
+    const response = await axios.get(
+      // eslint-disable-next-line camelcase
+      `https://ah-alpha-staging.herokuapp.com/api/v1/articles/?page=${page}&page_size=${page_size}`
+    );
+    dispatch(successOnLoad(response.data));
+  } catch (err) {
+    dispatch(errorOnLoad(err.response.data));
+  }
 };
 
 export default getArticles;

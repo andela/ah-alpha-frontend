@@ -27,7 +27,7 @@ class Profile extends Component {
           <h2 id="username">{userProfile.username} </h2>
           <Follow />
           <Grid.Column>
-            <div id="button">
+            <div id="button-NEW">
               <Link to="/profile-edit" id="the-btn">
                 <button id="profile-edit" className="ui basic black button">
                   Edit profile
