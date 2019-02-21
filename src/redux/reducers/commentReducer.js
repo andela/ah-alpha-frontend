@@ -1,8 +1,8 @@
 /* eslint-disable no-case-declarations */
 // Reducer for list of comments from API
-import { FETCH_COMMENTS, FETCH_COMMENTS_FAILURE } from "../../actions/types";
+import { FETCH_COMMENTS, FETCH_COMMENTS_FAILURE, ADD_COMMENT_FAILURE, ADD_COMMENT } from "../../actions/types";
 
-export const initialState = {
+const initialState = {
   comments: []
 };
 
@@ -18,6 +18,18 @@ const commentListReducer = (state = initialState, action) => {
     case FETCH_COMMENTS_FAILURE:
       return {
         ...state,
+        errors: action.payload
+      };
+
+    case ADD_COMMENT:
+      return Object.assign(
+        {},
+        state,
+        { comments: [...state.comments, action.payload] }
+      );
+
+    case ADD_COMMENT_FAILURE:
+      return {
         errors: action.payload
       };
 

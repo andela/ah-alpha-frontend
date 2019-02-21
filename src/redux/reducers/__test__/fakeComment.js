@@ -18,58 +18,25 @@ const fakeComment = {
   body: "fake coment body",
   id: 28
 };
-const fakeCommenttwo = {
-  author_profile: {
-  }
-};
-const fakeComments = {
-  errors: "error"
-};
-
 const fetchCommentsAction = {
   type: types.FETCH_COMMENTS,
   payload: [fakeComment]
 };
-const failureCommentsAction = {
-  type: types.FETCH_COMMENTS_FAILURE,
-  payload: [fakeComments]
-};
-
 const addCommentAction = {
   type: types.ADD_COMMENT,
-  payload: fakeComment
-
+  payload: [fakeComment]
 };
-const FailedCommentAction = {
-  type: types.ADD_COMMENT_FAILURE,
-  payload: fakeCommenttwo
-
-};
-
 it("should handle FETCH_COMMENTS by inserting all existing comments into state", () => {
   expect(commentListReducer(initialState, fetchCommentsAction)).toEqual({
     ...initialState,
     comments: [fakeComment]
   });
-});
-
-it("should handle ADD_COMMENT by inserting a comment into state", () => {
-  expect(commentListReducer(initialState, addCommentAction)).toEqual({
-    ...initialState,
-    comments: [fakeComment]
-  });
-});
-
-it("should handle ADD_COMMENT_FAILURE by raising an error", () => {
-  expect(commentListReducer(initialState, FailedCommentAction)).toEqual({
-    ...initialState,
-    errors: fakeCommenttwo
-  });
-});
-it("should handle FETCH_COMMENTS_FAILURE by raising an error", () => {
-  expect(commentListReducer(initialState, failureCommentsAction)).toEqual({
-    ...initialState,
-    comments: [],
-    errors: [{ errors: "error" }]
+  it("should handle ADD_COMMENT by inserting a comment into state", () => {
+    // eslint-disable-next-line no-undef
+    expect(commentListReducer(initialState, addCommentAction)).toEqual({
+      // eslint-disable-next-line no-undef
+      ...initialState,
+      comments: [fakeComment]
+    });
   });
 });
