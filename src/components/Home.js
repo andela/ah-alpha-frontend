@@ -1,8 +1,10 @@
 import React from "react";
 
+import GetArticles from "./containers/articles/Articles";
+
 const Home = () => (
   <div className="home">
-    <h1>Authors Haven</h1>
+    <GetArticles />
   </div>
 );
 

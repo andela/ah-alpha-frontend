@@ -9,6 +9,8 @@ describe("reducers", () => {
       },
       forgotPassword: {},
       passwordReset: {},
+      fetchArticles: {},
+      fetchOneArticle: {},
       profiles: {
         errors: {}, isLoggedIn: false, profiles: { profile: {} }, token: null, username: null
       },
