@@ -1,0 +1,21 @@
+body{
+    background-color: whitesmoke;
+}
+.reset-form{
+    // border: 1px solid black;
+    border-radius: 5px;
+    width: 40%;
+    margin:auto;
+    padding: 100px;
+    margin-top: 150px;
+}
+.submitbtn{
+    border-radius: 5px;
+    color: white;
+    background-color: black;
+}
+.submitbtn:hover{
+    border-radius: 5px;
+    color: black;
+    background-color: lightgray;
+}

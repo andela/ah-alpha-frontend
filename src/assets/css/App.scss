@@ -132,7 +132,7 @@ a:hover {
 
 
 #button{
-    padding-right: 65%;
+    padding:auto;
 }
 
 #the-btn {
@@ -148,3 +148,16 @@ a:hover {
 #username {
     text-transform: capitalize;
 }
+.link-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+    display: inline;
+    margin: 0;
+    padding: 0;
+  }
+  .link-button:hover,
+  .link-button:focus {
+    text-decoration: none;
+  }

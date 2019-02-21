@@ -16,8 +16,10 @@ import followersProfile from "./components/containers/profiles/followers";
 import followingProfile from "./components/containers/profiles/following";
 import store from "./redux/store";
 import SuccessComponent from "./components/authentication/socialAuth/SuccessComponent";
+import ResetForm from "./components/containers/passwordReset/ForgotPassword";
+import ResetPassword from "./components/containers/passwordReset/ResetPassword";
 import "./assets/css/App.scss";
-
+import "./assets/css/reset.scss";
 // Functional component
 import Navbar from "./components/common/Navbar";
 
@@ -36,6 +38,8 @@ const App = () => (
             <Route path="/profile-edit" component={EditProfile} />
             <Route path="/followers" component={followersProfile} />
             <Route path="/following" component={followingProfile} />
+            <Route path="/forgotpwd" component={ResetForm} />
+            <Route path="/reset-password/:resetpwdtoken" component={ResetPassword} />
           </Switch>
         </div>
       </div>

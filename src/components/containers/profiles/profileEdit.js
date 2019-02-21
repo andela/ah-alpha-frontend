@@ -85,7 +85,6 @@ class EditProfile extends Component {
             placeholder="Edit your first name ..."
             value={form.First_name}
             onChange={this.onChange}
-
           />
         </Form.Field>
         <Form.Field>
@@ -95,7 +94,6 @@ class EditProfile extends Component {
             placeholder="Edit your Last name ..."
             value={form.Last_name}
             onChange={this.onChange}
-
           />
         </Form.Field>
         <Form.Field>
@@ -105,7 +103,6 @@ class EditProfile extends Component {
             placeholder="Edit your bio ..."
             value={form.bio}
             onChange={this.onChange}
-
           />
         </Form.Field>
         <Form.Field>
@@ -115,7 +112,6 @@ class EditProfile extends Component {
             placeholder="Edit your location ..."
             value={form.location}
             onChange={this.onChange}
-
           />
         </Form.Field>
         <Form.Field>
@@ -126,7 +122,6 @@ class EditProfile extends Component {
             placeholder="Edit your company..."
             value={form.company}
             onChange={this.onChange}
-
           />
         </Form.Field>
 
