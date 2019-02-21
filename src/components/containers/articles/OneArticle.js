@@ -5,15 +5,15 @@
 /* eslint-disable react/no-unused-prop-types */
 /* eslint-disable react/jsx-no-comment-textnodes */
 /* eslint-disable react/destructuring-assignment */
-/* eslint-disable object-shorthand */
-/* eslint-disable react/prop-types */
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { PropTypes } from "prop-types";
 import Parser from "html-react-parser";
 import moment from "moment";
+import { PropTypes } from "prop-types";
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Icon } from "semantic-ui-react";
 import FollowButton from "../Follow/followButton";
 import getOneArticle from "../../../actions/getOneArticleAction";
+import ArticleRating from "../rating/Rating";
 
 export class GetOneArticle extends Component {
   constructor() {
@@ -72,7 +72,7 @@ export class GetOneArticle extends Component {
                     {!localStorage.getItem("token") ||
                     localStorage.getItem("token") === undefined ? (
                       <div />
-                      ) : localStorage.getItem("username") ===
+                    ) : localStorage.getItem("username") ===
                       article.author.username ? (
                         <div />
                         ) : (
@@ -80,38 +80,51 @@ export class GetOneArticle extends Component {
                         )}
                     <br />
                     <div className="date-time">
+                      <br />
+                      <Icon name="star" /> Rating: {article.rating}
+                      <br />
                       {moment(article.created_at).format("MMM Do")}
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="intro-image">
-              {!article.image_path ? (
-                <div />
-              ) : (
-                <img
-                  src={article.image_path}
-                  alt=""
-                  style={{
-                    paddingLeft: "200px",
-                    width: "850px",
-                    height: "450px"
-                  }}
-                />
-              )}
-            </div>
-            <br />
-            <div className="intro-content">
-              <br />
-              <div className="body">{Parser(article.body)}</div>
-              <ul className="mini-tags">
-                {article.tags.length === 0 ? (
-                  <div>No tags</div>
+              <div className="intro-image">
+                {!article.image_path ? (
+                  <div />
                 ) : (
-                  article.tags.map(tag => <li className="mini-tag">{tag}</li>)
+                  <img
+                    src={article.image_path}
+                    alt=""
+                    style={{
+                      paddingLeft: "200px",
+                      width: "850px",
+                      height: "450px"
+                    }}
+                  />
                 )}
-              </ul>
+              </div>
+              <br />
+              <div className="intro-content">
+                <br />
+                <div className="body">{Parser(article.body)}</div>
+                <ul className="mini-tags">
+                  {article.tags.length === 0 ? (
+                    <div>No tags</div>
+                  ) : (
+                    article.tags.map(tag => <li className="mini-tag">{tag}</li>)
+                  )}
+                </ul>
+                <br />
+                {!localStorage.getItem("token") ||
+                localStorage.getItem("token") === undefined ? (
+                  <div />
+                ) : localStorage.getItem("username") ===
+                  article.author.username ? (
+                  <div />
+                ) : (
+                  <ArticleRating slug={article.slug} size="massive" />
+                )}
+              </div>
             </div>
           </div>
         )}
@@ -134,6 +147,7 @@ GetOneArticle.defaultProps = {
 };
 
 const mapStateToProps = state => ({
+  rating: state.ratingReducer,
   fetchOneArticle: state.fetchOneArticle,
   isLoading: state.isLoading,
   article: state.article,
@@ -143,7 +157,11 @@ const mapStateToProps = state => ({
 
 });
 
+const mapDispatchToProps = dispatch => ({
+  getOneArticle: data => dispatch(getOneArticle(data))
+});
+
 export default connect(
   mapStateToProps,
-  { getOneArticle }
+  mapDispatchToProps
 )(GetOneArticle);

@@ -20,7 +20,6 @@ class Profile extends Component {
     // eslint-disable-next-line react/prop-types
     const { userProfile } = this.props;
     // eslint-disable-next-line no-console
-    console.log("this is the user profile", userProfile);
     return (
       <div>
         <Grid id="grid_system" centered columns={3}>

@@ -1,27 +1,292 @@
-body {
+#button {
+  width: 100%;
+}
+
+input {
+  width: 100%;
+}
+
+#input-holder {
+  padding: 0;
+}
+
+.modals {
+  padding: 25px;
+}
+
+a:hover {
+  cursor: pointer;
+}
+#login-button {
+  width: 100%;
+  background: transparent;
+  font-weight: bolder;
+  font-size: 1.2em;
+  box-shadow: none !important;
+}
+
+input {
+  width: 100%;
+}
+
+#input-holder {
+  padding: 0;
+}
+
+.modals {
+  padding: 25px;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+#reg-input .field {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  min-width: 100%;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+#reg-input .field .input {
+  margin: 0.8em 0 0.8em 0;
+  padding: 0;
+  width: 100%;
 }
 
-#carousel-title {
-  font-size: 24pt;
+#reg-header {
+  font-size: 2em;
+  font-weight: bolder;
+  margin: 1em 0 0 0 !important;
+  text-align: left !important;
 }
 
-.legend {
+#regModal div {
+  text-align: center;
+  width: 100%;
+  margin: 0;
+  padding: 0 5% 0 5%;
+}
+
+#regModal #regBtn {
+  color: black;
+  width: 100%;
+  margin: 0%;
   background: transparent;
+  border: 1px;
+  height: 2.5em;
+  font-size: 1.2em;
+  margin: 0.8em 0 2em 0;
+  padding: 0 5% 0 5%;
 }
 
-#linking {
+#regModal .error {
+  color: red;
+}
+
+.link-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  display: inline;
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+
+.link-button:hover {
   text-decoration: none;
-  color: white;
+}
+
+.home {
+  padding-top: 5%;
+}
+#grid_system {
+  padding-top: 10%;
+}
+
+#pull-right {
+  padding-left: 31%;
+}
+
+#personal-info {
+  padding-left: 28%;
+  font-size: 45px;
+}
+
+#username {
+  text-align: center;
+  padding-top: 1%;
+}
+
+#new {
+  padding-top: 15%;
+}
+
+#form {
+  padding-top: 10%;
+  width: 60%;
+  padding-left: 30%;
+}
+
+#button {
+  text-align: center;
+  outline: none;
+}
+
+#the-btn {
+  padding-left: 40%;
+  top: 500%;
+}
+
+.yellow-with-large-padding {
+  padding: 20px !important;
+  background: yellow;
+}
+
+#username {
+  text-transform: capitalize;
+}
+.link-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+.link-button:hover,
+.link-button:focus {
+  text-decoration: none;
+}
+
+$primary-color: black;
+@import "loaders.css/src/animations/semi-circle-spin.scss";
+
+.loader-hidden {
+  display: none;
+}
+
+.loader-active {
+  display: block;
+}
+
+.tags {
+  list-style-type: none;
+  text-align: left;
+  padding: 1%;
+}
+
+.tags .tag {
+  float: left;
+  border: 1px solid rgb(173, 171, 171);
+  border-radius: 5px;
+  padding: 2px;
+  color: grey;
+  background: rgb(233, 233, 233);
+  transition: all 0.3s;
+}
+
+.tags .tag:hover {
+  border: 1px solid grey;
+  cursor: pointer;
+  background: rgb(179, 177, 177);
+}
+
+.mini-tags {
+  list-style-type: none;
+  text-align: left;
+  padding: 1%;
+  padding-top: 10%;
+  padding-bottom: 10%;
+}
+
+.mini-tags .mini-tag {
+  float: left;
+  border: 1px solid rgb(173, 171, 171);
+  padding: 2px;
+  border-radius: 5px;
+  color: grey;
+  background: rgb(233, 233, 233);
+  transition: all 0.3s;
+}
+
+.mini-tags .mini-tag:hover {
+  border: 1px solid grey;
+  cursor: pointer;
+  background: rgb(179, 177, 177);
+}
+
+#username {
+  text-align: center;
+  padding-top: 1%;
+}
+
+.article-content {
+  padding-top: 25px;
+  padding-left: 25%;
+  padding-right: 15%;
+}
+
+.single-article {
+  padding-top: 5%;
+  padding-left: 8%;
+}
+
+.single-article .intro-author {
+  color: grey;
+  padding-left: 77%;
+}
+
+.single-article .intro-image {
+  max-width: 0%;
+}
+
+.single-card {
+  margin: 1%;
+}
+
+.intro-content {
+  padding-left: 200px;
+  width: 850px;
+}
+
+.intro-image {
+  padding-top: 25px;
+}
+
+.intro-header {
+  padding-left: 200px;
+  width: 850px;
+  padding-top: 2%;
+}
+
+.item {
+  font-size: 11pt;
+}
+
+#logo {
+  font-size: 16pt;
+}
+
+.avatar {
+  padding-top: 1%;
+}
+
+.intro-profile {
+  width: 15%;
+}
+
+.intro-title {
+  padding-top: 15px;
+}
+
+.user-username {
+  float: right;
+  font-weight: 800;
+}
+
+.ui-alerts {
+  z-index: 0 !important;
 }

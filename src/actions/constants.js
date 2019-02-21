@@ -7,7 +7,7 @@ export const userConstants = {
   VERIFY_FAILURE: "USERS_VERIFY_FAILURE"
 };
 
-export const BASE_URL = "https://ah-alpha.herokuapp.com";
+export const BASE_URL = "https://ah-alpha-staging.herokuapp.com";
 
 export const toastOptions = {
   position: "top-center",
