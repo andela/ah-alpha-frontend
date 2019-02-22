@@ -14,6 +14,7 @@ import { Icon } from "semantic-ui-react";
 import FollowButton from "../Follow/followButton";
 import getOneArticle from "../../../actions/getOneArticleAction";
 import ArticleRating from "../rating/Rating";
+import CommentsContainer from "../commentsContainer";
 
 export class GetOneArticle extends Component {
   constructor() {
@@ -69,14 +70,17 @@ export class GetOneArticle extends Component {
                     />
 
                     <h4 className="user-username">{article.author.username}</h4>
-                    {!localStorage.getItem("token") ||
-                    localStorage.getItem("token") === undefined ? (
+                    {!localStorage.getItem("token")
+                    || localStorage.getItem("token") === undefined ? (
                       <div />
-                    ) : localStorage.getItem("username") ===
-                      article.author.username ? (
+                      ) : localStorage.getItem("username")
+                      === article.author.username ? (
                         <div />
                         ) : (
-                          <FollowButton following={this.props.following}  author={ article.author.username} />
+                          <FollowButton
+                            following={this.props.following}
+                            author={article.author.username}
+                          />
                         )}
                     <br />
                     <div className="date-time">
@@ -114,16 +118,16 @@ export class GetOneArticle extends Component {
                     article.tags.map(tag => <li className="mini-tag">{tag}</li>)
                   )}
                 </ul>
-                <br />
-                {!localStorage.getItem("token") ||
-                localStorage.getItem("token") === undefined ? (
+                {!localStorage.getItem("token")
+                || localStorage.getItem("token") === undefined ? (
                   <div />
-                ) : localStorage.getItem("username") ===
-                  article.author.username ? (
-                  <div />
-                ) : (
-                  <ArticleRating slug={article.slug} size="massive" />
-                )}
+                  ) : localStorage.getItem("username")
+                  === article.author.username ? (
+                    <div />
+                    ) : (
+                      <ArticleRating slug={article.slug} size="massive" />
+                    )}
+                <CommentsContainer slug={this.props.props.match.params.slug} />
               </div>
             </div>
           </div>
@@ -154,7 +158,6 @@ const mapStateToProps = state => ({
   errors: state.message,
   following: state.profiles.profile.following,
   image_path: state.profiles.profile.image
-
 });
 
 const mapDispatchToProps = dispatch => ({
