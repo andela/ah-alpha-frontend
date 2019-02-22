@@ -51,7 +51,7 @@ export class GetArticles extends Component {
   render() {
     const pageNumbers = Math.ceil(this.state.count / this.state.page_size);
     return (
-      <div>
+      <div >
         {!this.state.isLoading ? (
           <div>
             {this.state.articles.length === 0 ? (

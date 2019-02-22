@@ -14,6 +14,7 @@ import { Icon } from "semantic-ui-react";
 import FollowButton from "../Follow/followButton";
 import getOneArticle from "../../../actions/getOneArticleAction";
 import ArticleRating from "../rating/Rating";
+import CommentsContainer from "../commentsContainer";
 
 export class GetOneArticle extends Component {
   constructor() {
@@ -43,9 +44,9 @@ export class GetOneArticle extends Component {
   render() {
     if (Object.keys(this.props.fetchOneArticle).length === 0) {
       return <div>Article not found</div>;
-    } else {
-      const { article } = this.props.fetchOneArticle;
-      return (
+    }
+    const { article } = this.props.fetchOneArticle;
+    return (
         <div>
           {this.state.isLoading ? (
             <h1>Loading</h1>
@@ -62,18 +63,18 @@ export class GetOneArticle extends Component {
                       />
                     </div>
                     <h4 className="user-username">{article.author.username}</h4>
-                    {!localStorage.getItem("token") ||
-                    localStorage.getItem("token") === undefined ? (
+                    {!localStorage.getItem("token")
+                    || localStorage.getItem("token") === undefined ? (
                       <div />
-                    ) : localStorage.getItem("username") ===
-                      article.author.username ? (
-                      <div />
-                    ) : (
-                      <FollowButton
-                        following={this.props.following}
-                        author={article.author.username}
-                      />
-                    )}
+                      ) : localStorage.getItem("username")
+                      === article.author.username ? (
+                        <div />
+                        ) : (
+                          <FollowButton
+                            following={this.props.following}
+                            author={article.author.username}
+                          />
+                        )}
                     <br />
                     <div className="read-time">
                       <br />
@@ -114,22 +115,22 @@ export class GetOneArticle extends Component {
                     article.tags.map(tag => <li className="mini-tag">{tag}</li>)
                   )}
                 </ul>
-                <br />
-                {!localStorage.getItem("token") ||
-                localStorage.getItem("token") === undefined ? (
+                {!localStorage.getItem("token")
+                || localStorage.getItem("token") === undefined ? (
                   <div />
-                ) : localStorage.getItem("username") ===
-                  article.author.username ? (
-                  <div />
-                ) : (
-                  <ArticleRating slug={article.slug} size="massive" />
-                )}
+                  ) : localStorage.getItem("username")
+                  === article.author.username ? (
+                    <div />
+                    ) : (
+                      <ArticleRating slug={article.slug} size="massive" />
+                    )}
+                <CommentsContainer slug={this.props.props.match.params.slug} />
               </div>
             </div>
           )}
         </div>
       );
-    }
+    
   }
 }
 

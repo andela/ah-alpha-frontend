@@ -1,11 +1,15 @@
 import { RESET_SUCCESS, RESET_FAIL } from "./types";
-import axiosConfig from "./axiosConfig";
+import urlPath from "../api/axiosConfig";
 
 export const success = message => ({ type: RESET_SUCCESS, payload: message });
 export const failure = error => ({ type: RESET_FAIL, payload: error });
 
 const resetPassword = data => (dispatch) => {
-  return axiosConfig
+  // eslint-disable-next-line no-shadow
+  const success = message => ({ type: RESET_SUCCESS, payload: message });
+  // eslint-disable-next-line no-shadow
+  const failure = error => ({ type: RESET_FAIL, payload: error });
+  return urlPath
     .request({
       method: "patch",
       url: `users/password_reset/${data.token}`,
