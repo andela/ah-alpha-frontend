@@ -22,8 +22,13 @@ describe("reducers", () => {
         isUser: false
       },
       registration: {},
+      verification: {},
       socialAuth: { message: "" },
-      verification: {}
+      createArticles: {
+        article: [],
+        error: [],
+        tags: []
+      }
     });
   });
 });

@@ -12,6 +12,7 @@ import { passwordReset } from "./passwordReset/passwordReset";
 import { forgotPassword } from "./passwordReset/forgotPassword";
 import getArticlesReducer from "./getArticlesReducer";
 import getOneArticleReducer from "./getOneArticleReducer";
+import createArticlesReducer from "./articles/createArticlesReducer";
 
 const rootReducer = combineReducers({
   registration,
@@ -23,7 +24,8 @@ const rootReducer = combineReducers({
   passwordReset,
   forgotPassword,
   fetchArticles: getArticlesReducer,
-  fetchOneArticle: getOneArticleReducer
+  fetchOneArticle: getOneArticleReducer,
+  createArticles: createArticlesReducer
 });
 
 export default rootReducer;

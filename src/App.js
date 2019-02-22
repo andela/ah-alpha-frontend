@@ -19,6 +19,8 @@ import store from "./redux/store";
 import SuccessComponent from "./components/authentication/socialAuth/SuccessComponent";
 import ResetForm from "./components/containers/passwordReset/ForgotPassword";
 import ResetPassword from "./components/containers/passwordReset/ResetPassword";
+import createArticles from "./components/containers/articles/CreateArticles";
+
 import "./assets/css/App.scss";
 import "./assets/css/reset.scss";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -43,6 +45,7 @@ const App = () => (
             <Route path="/following" component={followingProfile} />
             <Route path="/forgotpwd" component={ResetForm} />
             <Route path="/reset-password/:resetpwdtoken" component={ResetPassword} />
+            <Route exact path="/create-article" component={createArticles} />
             <Route path="/:slug" exact component={OneArticle} />
           </Switch>
         </div>

@@ -1,50 +1,44 @@
+/* eslint-disable no-undef */
 import { shallow, configure, mount } from "enzyme";
 import React from "react";
 import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
 import thunk from "redux-thunk";
 import configureStore from "redux-mock-store";
-import { BrowserRouter } from "react-router-dom";
 import Adapter from "enzyme-adapter-react-16";
-import FollowButton from "../followButton";
-import Follow from "../index";
+import CreateForm from "../createArticalForm";
 
 configure({ adapter: new Adapter() });
+
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
 
-describe("Follow button component being rendered", () => {
-  it("should be a follow button", () => {
-    const tree = shallow(<FollowButton />);
-    expect(tree).toMatchSnapshot();
-  });
-});
-
-describe("Follow component being rendered", () => {
-  it("should be a follow component", () => {
-    const tree = shallow(<Follow />);
+describe("Create article Form being rendered", () => {
+  it("should be a form", () => {
+    const tree = shallow(<CreateForm />);
     expect(tree).toMatchSnapshot();
   });
 });
 
 describe("render the component and check if all items exist", () => {
-  const store = mockStore({
-    count: {
-      following_count: 0,
-      followers_count: 0
-    }
-  });
+  const store = mockStore({ store: {} });
   const wrapper = mount(
     <Provider store={store}>
       <BrowserRouter>
-        <FollowButton />
+        <CreateForm />
       </BrowserRouter>
     </Provider>
   );
 
   it("Should render all child elements correctly", () => {
+    expect(wrapper.find(".container").exists()).toBe(true);
+    expect(wrapper.find(".grid").exists()).toBe(true);
+    expect(wrapper.find(".form").exists()).toBe(true);
+    expect(wrapper.find(".input").exists()).toBe(true);
+    expect(wrapper.find("label").exists()).toBe(true);
     expect(wrapper.find(".button").exists()).toBe(true);
+    expect(wrapper.find("div").exists()).toBe(true);
   });
-
   it("Should simulate click", () => {
     const submitButton = wrapper.find("button");
     submitButton.simulate("click");

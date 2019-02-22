@@ -1,9 +1,11 @@
 import { SEND_EMAIL, EMAIL_FAIL } from "./types";
 import axiosConfig from "./axiosConfig";
 
+export const success = message => ({ type: SEND_EMAIL, payload: message });
+export const failure = error => ({ type: EMAIL_FAIL, payload: error });
+
 const forgotPassword = data => (dispatch) => {
-  const success = message => ({ type: SEND_EMAIL, payload: message });
-  const failure = error => ({ type: EMAIL_FAIL, payload: error });
+
   return axiosConfig
     .request({
       method: "post",

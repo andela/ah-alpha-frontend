@@ -62,11 +62,9 @@ describe("should change active page", () => {
       count: 3,
       page_size: 1
     });
-    console.log(">>>>>>", mountedComponent.debug())
+
     const secondItem = mountedComponent.find(".item").at(1);
-    console.log("sennnnn", secondItem);
     secondItem.simulate("click", 2);
-   
     // mountedComponent.instance().handlePaginationChange(2);
     expect(mountedComponent.state("activePage")).toEqual(1);
   });
