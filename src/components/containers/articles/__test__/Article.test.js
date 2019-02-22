@@ -36,22 +36,10 @@ describe("Get all articles", () => {
 
 describe("Get component being rendered", () => {
   it("should be a get articles component", () => {
-    const tree = shallow(<GetArticles getArticles={getArticles} />);
+    const tree = shallow(
+      <GetArticles getArticles={getArticles}/>
+    );
     expect(tree).toMatchSnapshot();
-  });
-});
-describe("Get component being rendered", () => {
-  it("should be a get articles component", () => {
-    const tree = shallow(<GetArticles getArticles={getArticles} />);
-    expect(tree).toMatchSnapshot();
-  });
-});
-
-describe("actions", () => {
-  it("get all articles actions", () => {
-    const store = mockStore({});
-    const actionsDispatched = store.dispatch(getArticles);
-    expect(actionsDispatched).toEqual(actionsDispatched);
   });
 });
 
@@ -62,7 +50,6 @@ describe("should change active page", () => {
       count: 3,
       page_size: 1
     });
-
     const secondItem = mountedComponent.find(".item").at(1);
     secondItem.simulate("click", 2);
     // mountedComponent.instance().handlePaginationChange(2);

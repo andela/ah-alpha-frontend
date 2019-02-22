@@ -73,7 +73,7 @@ const CreateForm = ({ ...props }) => {
                   onChange={handleTagChange}
                 />
               </Form.Field>
-              <button className="ui medium basic black button" type="submit">
+              <button className="ui medium basic black button" id="hover" type="submit">
                 <i className="sign in icon" />
                 Publish
               </button>

@@ -37,7 +37,7 @@ const App = () => (
         <div>
           <ToastContainer autoClose={3000} />
           <Switch>
-            <Route exact path="/" exact component={Home} />
+            <Route exact path="/" component={Home} />
             <Route path="/verify/:verifyToken" component={VerifyEmail} />
             <Route exact path="/profile" component={Profile} />
             <Route path="/profile-edit" component={EditProfile} />

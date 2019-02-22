@@ -41,49 +41,50 @@ export class GetOneArticle extends Component {
   }
 
   render() {
-    // eslint-disable-next-line react/destructuring-assignment
     if (Object.keys(this.props.fetchOneArticle).length === 0) {
       return <div>Article not found</div>;
-    }
-    // eslint-disable-next-line react/destructuring-assignment
-    const { article } = this.props.fetchOneArticle;
-    return (
-      <div>
-        {this.state.isLoading ? (
-          <h1>Loading</h1>
-        ) : (
-          <div>
-            <div className="single-article">
-              <div className="intro-header">
-                <div className="intro-title">
-                  <div className="title">
-                    <h1 className="header">{article.title}</h1>
-                  </div>
-                </div>
-                <div className="intro-profile">
-                  <div className="avatar">
-                    <img
-                      src="https://res.cloudinary.com/dxecwuaqd/image/upload/c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1550079584/o75xgubltk4hso90l9jt.png"
-                      alt=""
-                      style={{ borderRadius: `${50}%`, height: "65px" }}
-                    />
-
+    } else {
+      const { article } = this.props.fetchOneArticle;
+      return (
+        <div>
+          {this.state.isLoading ? (
+            <h1>Loading</h1>
+          ) : (
+            <div>
+              <div className="single-article">
+                <div className="intro-header">
+                  <div className="intro-profile">
+                    <div className="avatar">
+                      <img
+                        src="https://res.cloudinary.com/dxecwuaqd/image/upload/c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1550079584/o75xgubltk4hso90l9jt.png"
+                        alt=""
+                        style={{ borderRadius: 50 + "%", height: "65px" }}
+                      />
+                    </div>
                     <h4 className="user-username">{article.author.username}</h4>
                     {!localStorage.getItem("token") ||
                     localStorage.getItem("token") === undefined ? (
                       <div />
                     ) : localStorage.getItem("username") ===
                       article.author.username ? (
-                        <div />
-                        ) : (
-                          <FollowButton following={this.props.following}  author={ article.author.username} />
-                        )}
+                      <div />
+                    ) : (
+                      <FollowButton
+                        following={this.props.following}
+                        author={article.author.username}
+                      />
+                    )}
                     <br />
-                    <div className="date-time">
+                    <div className="read-time">
                       <br />
                       <Icon name="star" /> Rating: {article.rating}
                       <br />
                       {moment(article.created_at).format("MMM Do")}
+                    </div>
+                  </div>
+                  <div className="intro-title">
+                    <div className="title">
+                      <h1 className="header">{article.title}</h1>
                     </div>
                   </div>
                 </div>
@@ -103,7 +104,6 @@ export class GetOneArticle extends Component {
                   />
                 )}
               </div>
-              <br />
               <div className="intro-content">
                 <br />
                 <div className="body">{Parser(article.body)}</div>
@@ -126,10 +126,10 @@ export class GetOneArticle extends Component {
                 )}
               </div>
             </div>
-          </div>
-        )}
-      </div>
-    );
+          )}
+        </div>
+      );
+    }
   }
 }
 
@@ -154,7 +154,6 @@ const mapStateToProps = state => ({
   errors: state.message,
   following: state.profiles.profile.following,
   image_path: state.profiles.profile.image
-
 });
 
 const mapDispatchToProps = dispatch => ({

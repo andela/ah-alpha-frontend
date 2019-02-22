@@ -15,7 +15,6 @@ const getOneArticleReducer = (state = initialState, action) => {
       };
     case GET_ONE_ARTICLE_SUCCESS:
       return {
-        // ...state,
         article: action.payload,
         isLoading: false
       };
