@@ -25,8 +25,8 @@ import "./assets/css/App.scss";
 import "./assets/css/reset.scss";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 // Functional component
-import OneArticle from "./components/SingleArticle";
 import Navbar from "./components/common/Navbar";
+import OneArticle from "./components/SingleArticle";
 
 const App = () => (
   <Provider store={store}>
@@ -37,7 +37,7 @@ const App = () => (
         <div>
           <ToastContainer autoClose={3000} />
           <Switch>
-            <Route exact path="/" component={Home} />
+            <Route exact path="/" exact component={Home} />
             <Route path="/verify/:verifyToken" component={VerifyEmail} />
             <Route exact path="/profile" component={Profile} />
             <Route path="/profile-edit" component={EditProfile} />

@@ -1,10 +1,10 @@
-import "react-toastify/dist/ReactToastify.css";
-import { toast } from "react-toastify";
 import axios from "axios";
-import { userConstants, BASE_URL, toastOptions } from "./constants";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { history } from "../_helpers/history";
+import { BASE_URL, toastOptions, userConstants } from "./constants";
 
-export const registerUser = user => (dispatch) => {
+export const registerUser = user => dispatch => {
   const website = window.location.origin.toString();
   const data = {
     site: website,
@@ -25,10 +25,10 @@ export const registerUser = user => (dispatch) => {
   dispatch(request());
   return axios
     .post(url, data)
-    .then((response) => {
+    .then(response => {
       dispatch(success(response.user));
     })
-    .catch((error) => {
+    .catch(error => {
       try {
         dispatch(failure(Object.values(error.response.data.errors)));
       } catch (otherError) {
@@ -38,7 +38,7 @@ export const registerUser = user => (dispatch) => {
     });
 };
 
-export const verifyUser = token => (dispatch) => {
+export const verifyUser = token => dispatch => {
   function request() {
     return { type: userConstants.VERIFY_REQUEST };
   }
@@ -52,18 +52,22 @@ export const verifyUser = token => (dispatch) => {
   dispatch(request());
   return axios
     .get(url)
-    .then((data) => {
-      toast.success(data.data.message, {
+    .then(response => {
+      toast.success(response.data.message, {
         ...toastOptions,
         toastId: "20291"
       });
-      localStorage.setItem("token", JSON.stringify(data.data.token));
-      dispatch(success(data.data.token));
+      const userToken = JSON.stringify(response.data.token);
+      const username = JSON.stringify(response.data.username);
+      localStorage.setItem("token", `Bearer ${userToken}`);
+      localStorage.setItem("username", username);
+      localStorage.setItem("isLoggedIn", true);
+      dispatch(success(response.data.userToken));
       setTimeout(() => {
         history.go("/");
       }, 1000);
     })
-    .catch((error) => {
+    .catch(() => {
       dispatch(failure([]));
     });
 };

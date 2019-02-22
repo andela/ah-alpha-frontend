@@ -1,14 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { PropTypes } from "prop-types";
-import Loader from "react-loaders";
 import { Card, Rating, Image, Pagination, Icon } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import { Carousel } from "react-responsive-carousel";
-import alphaLoader from "../../common/loader"
 
 import getArticles from "../../../actions/getArticlesAction";
-
 
 export class GetArticles extends Component {
   constructor() {
@@ -18,25 +15,24 @@ export class GetArticles extends Component {
       activePage: 1,
       isLoading: true,
       articles: [],
-      defaultActivePage: 1,
+      defaultActivePage: 1
     };
   }
   componentDidMount() {
     this.props.getArticles(1, this.state.page_size);
   }
-  
-  componentDidUpdate(prevProps, prevState){
-    if (prevState.activePage !== this.state.activePage){
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.activePage !== this.state.activePage) {
       this.props.getArticles(this.state.activePage, this.state.page_size);
     }
-    
   }
 
-  handlePaginationChange = (event, {activePage}) => {
+  handlePaginationChange = (event, { activePage }) => {
     event.preventDefault();
     this.setState({
       activePage
-    })
+    });
 
     // this.props.getArticles(activePage, this.state.page_size);
   };
@@ -52,11 +48,9 @@ export class GetArticles extends Component {
   }
 
   render() {
-    const pageNumbers = Math.ceil(
-      this.state.count / this.state.page_size
-);
+    const pageNumbers = Math.ceil(this.state.count / this.state.page_size);
     return (
-      <div className="article-content">
+      <div>
         {!this.state.isLoading ? (
           <div>
             {this.state.articles.length === 0 ? (
