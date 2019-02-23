@@ -2,6 +2,10 @@
   width: 100%;
 }
 
+.menu {
+  padding: 0 1em 0 1em;
+}
+
 input {
   width: 100%;
 }
@@ -17,6 +21,7 @@ input {
 a:hover {
   cursor: pointer;
 }
+
 #login-button {
   width: 100%;
   background: transparent;
@@ -70,7 +75,7 @@ a:hover {
 #regModal #regBtn {
   color: black;
   width: 100%;
-  margin: 0%;
+  margin: 1em 0 2em 0 !important;
 }
 
 .body {
@@ -101,13 +106,10 @@ a:hover {
   outline: none;
 }
 
-.link-button:hover {
-  text-decoration: none;
-}
-
 .home {
   padding-top: 5%;
 }
+
 #grid_system {
   padding-top: 10%;
 }
@@ -154,6 +156,7 @@ a:hover {
 #username {
   text-transform: capitalize;
 }
+
 .link-button {
   background-color: transparent;
   border: none;
@@ -163,6 +166,7 @@ a:hover {
   margin: 0;
   padding: 0;
 }
+
 .link-button:hover,
 .link-button:focus {
   text-decoration: none;
@@ -205,8 +209,6 @@ $primary-color: black;
   list-style-type: none;
   text-align: left;
   padding: 1%;
-  padding-top: 10%;
-  padding-bottom: 10%;
 }
 
 .mini-tags .mini-tag {
@@ -237,7 +239,7 @@ $primary-color: black;
 }
 
 .single-article {
-  padding-top: 5%;
+  padding-top: 3em;
   padding-left: 8%;
 }
 
@@ -278,20 +280,39 @@ $primary-color: black;
 }
 
 .avatar {
-  padding-top: 1%;
+  padding-top: 0.1%;
+  display: block;
+}
+.profile {
+  display: flex;
+  flex-direction: row;
+  margin-top: 2em;
+}
+
+.name-follow {
+  margin: 0 2em 0 2em;
 }
 
 .intro-profile {
   width: 15%;
 }
 
-.intro-title {
-  padding-top: 15px;
+.user-username {
+  text-transform: capitalize;
+  font-weight: 900;
+  font-size: 1.5em;
+  padding: 0 !important;
+  margin: 0 0 0.2em 0 !important;
+}
+.follow-button {
+  text-align: center !important;
+  line-height: 1em !important;
+  margin: 0.2em 0 0 0 !important;
+  padding: 0.5em !important;
 }
 
-.user-username {
-  float: right;
-  font-weight: 800;
+.follow-button:hover {
+  background-color: #967f2e !important;
 }
 
 .ui-alerts {
@@ -308,6 +329,7 @@ $primary-color: black;
 
 .read-time {
   color: grey;
+  margin-left: 2em;
 }
 
 .slider {
@@ -316,4 +338,61 @@ $primary-color: black;
 
 #hover:hover {
   background: rgb(91, 253, 91) !important;
+}
+
+.star-rating {
+  margin-top: 1em;
+  display: flex;
+  flex-direction: row;
+}
+.rateIcon {
+  color: black;
+}
+
+.article-rating {
+  font-weight: 900;
+  margin-bottom: 0.5em;
+  font-size: 2em;
+  font-style: italic;
+  align-self: center !important;
+}
+
+.footer {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  text-align: center !important;
+  border-top: "1px solid #E7E7E7";
+  text-align: "center";
+  left: "0";
+  bottom: "0";
+  height: "60px";
+  width: "100%";
+}
+.header {
+  text-transform: capitalize;
+}
+div.thumbs-wrapper.axis-vertical {
+  visibility: hidden !important;
+  height: 0 !important;
+}
+
+.star-icon {
+  color: #e5e500;
+}
+.icon-username {
+  margin-right: 1em;
+}
+
+img.ui.avatar.image {
+  min-height: 3em;
+  min-width: 3em;
+}
+
+.user-trigger {
+  margin: -1em 0 0 0;
+}
+
+.rating-bar {
+  margin: 1em 0 2em 0 !important;
 }

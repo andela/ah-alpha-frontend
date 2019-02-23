@@ -1,38 +1,53 @@
 import React from "react";
 import { Dropdown, Image } from "semantic-ui-react";
+import { logout } from "../../_helpers/history";
 
+const username = localStorage.getItem("username");
 const trigger = (
-  <div>
+  <div className="user-trigger">
     <br />
     <span>
+      <span className="icon-username">
+        {username}
+      </span>
       <Image
         avatar
         src="https://res.cloudinary.com/dxecwuaqd/image/upload/c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1550079584/o75xgubltk4hso90l9jt.png"
-      />{" "}
+      />
     </span>
   </div>
 );
 
 const options = [
-  { key: "user", text: "Account", icon: "settings" },
   {
-    key: "settings", text: "profile", icon: "user", href: "/profile"
+    key: "user",
+    text: (
+      <span>
+        Signed in as <strong>{username}</strong>
+      </span>
+    ),
+    disabled: true
   },
   {
-    key: "create-article", text: "New article", icon: "write", href: "/create-article"
+    key: "profile",
+    text: "Profile",
+    icon: "user",
+    href: "/profile"
   },
   {
-    key: "sign-out", text: "Home", icon: "home", href: "/"
+    key: "create-article",
+    text: "New article",
+    icon: "write",
+    href: "/create-article"
+  },
+  {
+    key: "log-out",
+    text: "Logout",
+    icon: "log out",
+    onClick: logout
   }
 ];
 
-const DropdownImageTriggerExample = () => (
-  <Dropdown
-    trigger={trigger}
-    options={options}
-    pointing="top left"
-    icon={null}
-  />
-);
+const DropDown = () => <Dropdown item simple trigger={trigger} options={options} icon="caret down" />;
 
-export default DropdownImageTriggerExample;
+export default DropDown;

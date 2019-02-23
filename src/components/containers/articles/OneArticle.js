@@ -42,52 +42,61 @@ export class GetOneArticle extends Component {
   }
 
   render() {
+    // eslint-disable-next-line react/destructuring-assignment
     if (Object.keys(this.props.fetchOneArticle).length === 0) {
-      return <div>Article not found</div>;
+      return <div> Article not found </div>;
     }
+    // eslint-disable-next-line react/destructuring-assignment
     const { article } = this.props.fetchOneArticle;
     return (
-        <div>
-          {this.state.isLoading ? (
-            <h1>Loading</h1>
-          ) : (
-            <div>
-              <div className="single-article">
-                <div className="intro-header">
-                  <div className="intro-profile">
-                    <div className="avatar">
+      <div>
+        {this.state.isLoading ? (
+          <h1> Loading </h1>
+        ) : (
+          <div>
+            <div className="single-article">
+              <div className="intro-header">
+                <div className="intro-title" />
+                <div className="intro-profile">
+                  <div className="avatar">
+                    <div className="profile">
                       <img
                         src="https://res.cloudinary.com/dxecwuaqd/image/upload/c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1550079584/o75xgubltk4hso90l9jt.png"
                         alt=""
-                        style={{ borderRadius: 50 + "%", height: "65px" }}
+                        style={{
+                          borderRadius: `${50}%`,
+                          height: "65px"
+                        }}
                       />
+                      <div className="name-follow">
+                        <h4 className="user-username"> {article.author.username}</h4>
+                        {!localStorage.getItem("token")
+                        || localStorage.getItem("token") === undefined ? (
+                          <div />
+                          ) : localStorage.getItem("username") === article.author.username ? (
+                            <button className="ui black medium button follow-button edit-button">
+                            Edit
+                            </button>
+                          ) : (
+                            <FollowButton
+                              following={this.props.following}
+                              author={article.author.username}
+                            />
+                          )}
+                      </div>
                     </div>
-                    <h4 className="user-username">{article.author.username}</h4>
-                    {!localStorage.getItem("token")
-                    || localStorage.getItem("token") === undefined ? (
-                      <div />
-                      ) : localStorage.getItem("username")
-                      === article.author.username ? (
-                        <div />
-                        ) : (
-                          <FollowButton
-                            following={this.props.following}
-                            author={article.author.username}
-                          />
-                        )}
                     <br />
-                    <div className="read-time">
-                      <br />
-                      <Icon name="star" /> Rating: {article.rating}
-                      <br />
-                      {moment(article.created_at).format("MMM Do")}
-                    </div>
                   </div>
-                  <div className="intro-title">
-                    <div className="title">
-                      <h1 className="header">{article.title}</h1>
-                    </div>
-                  </div>
+                </div>
+                <div className="title">
+                  <h1 className="header"> {article.title}</h1>
+                </div>
+                <div className="star-rating">
+                  <br />
+                  <Icon name="star" size="large" className="star-icon" />
+                  {article.rating ? parseFloat(article.rating).toFixed(1) : <span />}
+                  <br />
+                  <span className="read-time"> {moment(article.created_at).format("MMM Do")}</span>
                 </div>
               </div>
               <div className="intro-image">
@@ -105,30 +114,33 @@ export class GetOneArticle extends Component {
                   />
                 )}
               </div>
+              <br />
               <div className="intro-content">
                 <br />
-                <div className="body">{Parser(article.body)}</div>
+                <div className="body"> {Parser(article.body)}</div>
                 <ul className="mini-tags">
                   {article.tags.length === 0 ? (
-                    <div>No tags</div>
+                    <div> No tags </div>
                   ) : (
-                    article.tags.map(tag => <li className="mini-tag">{tag}</li>)
+                    article.tags.map(tag => <li className="mini-tag"> {tag}</li>)
                   )}
                 </ul>
-                {!localStorage.getItem("token")
-                || localStorage.getItem("token") === undefined ? (
+                <br />
+                {!localStorage.getItem("token") || localStorage.getItem("token") === undefined ? (
                   <div />
-                  ) : localStorage.getItem("username")
-                  === article.author.username ? (
-                    <div />
-                    ) : (
-                      <ArticleRating slug={article.slug} size="massive" />
-                    )}
+                ) : localStorage.getItem("username") === article.author.username ? (
+                  <div />
+                ) : (
+                  <span className="rating-bar">
+                    <ArticleRating slug={article.slug} size="massive" rating={article.my_rating} />
+                  </span>
+                )}
                 <CommentsContainer slug={this.props.props.match.params.slug} />
               </div>
             </div>
-          )}
-        </div>
+          </div>
+        )}
+      </div>
     );
   }
 }
@@ -147,7 +159,6 @@ GetOneArticle.defaultProps = {
 };
 
 const mapStateToProps = state => ({
-  rating: state.ratingReducer,
   fetchOneArticle: state.fetchOneArticle,
   isLoading: state.isLoading,
   article: state.article,
