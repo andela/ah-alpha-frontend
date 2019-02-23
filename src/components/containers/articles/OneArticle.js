@@ -129,8 +129,7 @@ export class GetOneArticle extends Component {
             </div>
           )}
         </div>
-      );
-    
+    );
   }
 }
 

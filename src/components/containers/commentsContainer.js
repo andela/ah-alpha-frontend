@@ -3,7 +3,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-
 import Comment from "../comment/commentsHere";
 import { fetchComments } from "../../actions/commentActions";
 
