@@ -16,6 +16,7 @@ import { ratingReducer } from "./rating/rating";
 import commentListReducer from "./commentReducer";
 import userArticlesReducer from "./articles/userArticlesReducer";
 import likesReducer from "./likes/likes";
+import deleteArticleReducer from "./articles/deleteArticleReducer";
 
 const rootReducer = combineReducers({
   registration,
@@ -32,7 +33,8 @@ const rootReducer = combineReducers({
   ratingReducer,
   commentListReducer,
   userArticles: userArticlesReducer,
-  likesReducer
+  likesReducer,
+  deleteArticleReducer
 });
 
 export default rootReducer;

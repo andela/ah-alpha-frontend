@@ -12,11 +12,7 @@ describe("reducers", () => {
         following_count: 0,
         isUser: false
       },
-      createArticles: {
-        article: [],
-        error: [],
-        tags: []
-      },
+      createArticles: { article: [], error: [], tags: [] },
       data: {
         errors: {},
         isLoggedIn: false,
@@ -24,6 +20,7 @@ describe("reducers", () => {
         token: null,
         username: null
       },
+      deleteArticleReducer: {},
       fetchArticles: {},
       fetchOneArticle: {},
       forgotPassword: {},
