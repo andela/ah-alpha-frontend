@@ -148,11 +148,6 @@ a:hover {
   outline: none;
 }
 
-#the-btn {
-  padding-left: 40%;
-  top: 500%;
-}
-
 .yellow-with-large-padding {
   padding: 20px !important;
   background: yellow;
@@ -393,6 +388,10 @@ img.ui.avatar.image {
   margin-left: 30% !important;
 }
 
+.like-dislike-buttons-2 {
+  margin-left: 10% !important;
+}
+
 .rate-like {
   display: flex;
   flex-direction: row;
@@ -401,4 +400,43 @@ img.ui.avatar.image {
 
 .no-rating {
   padding-right: 180px;
+}
+
+.action:hover {
+  cursor: pointer;
+}
+
+#or {
+  padding-top: 5px !important;
+}
+
+#left-btn {
+  padding-left: 15px !important;
+}
+
+#delete-btn, #edit-btn {
+  color: white !important;
+  transition: all .3s;
+}
+
+#delete-btn:hover {
+  background: rgb(235, 150, 150);
+  color: white
+}
+
+#edit-btn:hover {
+  background: rgb(176, 238, 176);
+}
+
+#links {
+  color: black;
+}
+
+#eddl {
+  padding-left: 400px;
+}
+
+.share-icons {
+  outline: none;
+  
 }

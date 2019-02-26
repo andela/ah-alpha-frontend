@@ -36,7 +36,7 @@ const options = [
   },
   {
     key: "your-articles",
-    text: "Articles",
+    text: "My Articles",
     icon: "file",
     href: "/your-articles"
   },

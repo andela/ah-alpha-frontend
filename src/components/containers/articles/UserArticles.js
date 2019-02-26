@@ -2,12 +2,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import {
-  Card,
-  Image,
-  Grid,
-  Divider
-} from "semantic-ui-react";
+import { Card, Image, Grid, Divider, Dropdown } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import moment from "moment";
 
@@ -20,12 +15,17 @@ export class UserArticles extends Component {
   }
 
   render() {
+    const loggedOut =
+      !localStorage.getItem("token") ||
+      localStorage.getItem("token") === undefined;
     const { isFetching, articles } = this.props;
 
     let articleCards;
     const currentUser = localStorage.getItem("username");
     if (isFetching) {
-      const results = articles.filter(article => article.author.username === currentUser);
+      const results = articles.filter(
+        article => article.author.username === currentUser
+      );
       articleCards = results.map(article => (
         <Grid.Column className="articleCard" key={article.slug}>
           <Card>
@@ -46,6 +46,26 @@ export class UserArticles extends Component {
                 >
                   {article.title}
                 </Link>
+                {loggedOut ? (
+                  <div />
+                ) : localStorage.getItem("username") ===
+                  article.author.username ? (
+                  <div className="right floated">
+                    {/* <ul className="user-actions">
+                      <li className="user-action">
+                        <Link to={{ pathname:`/${article.slug}/edit`}} id="the-btn">
+                          <i className="ui blue edit icon" />
+                        </Link>
+                      </li>
+                      <li className="user-action">
+                        <RemoveArticle />
+                      </li>
+                    </ul> */}
+                    {/* <Dropdown item simple trigger={trigger} options={options(`/${article.slug}/edit`, <RemoveArticle/>)} icon="caret down" /> */}
+                  </div>
+                ) : (
+                  <div />
+                )}
               </Card.Description>
             </Card.Content>
           </Card>

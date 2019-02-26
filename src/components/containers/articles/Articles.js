@@ -34,8 +34,6 @@ export class GetArticles extends Component {
     this.setState({
       activePage
     });
-
-    // this.props.getArticles(activePage, this.state.page_size);
   };
 
   componentWillReceiveProps(nextProps) {

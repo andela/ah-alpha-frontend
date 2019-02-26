@@ -29,3 +29,19 @@ body {
   color: black;
   margin: 15px;
 }
+
+.user-actions {
+  list-style-type: none;
+  text-align: left;
+  padding: 1%;
+}
+
+.user-actions .user-action {
+  float: left;
+  padding: 2px;
+  transition: all .3s;
+}
+
+.user-actions .user-action:hover {
+  cursor: pointer;
+}
