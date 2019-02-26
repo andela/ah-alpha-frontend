@@ -7,6 +7,7 @@ import { MemoryRouter } from "react-router-dom";
 import configureStore from "redux-mock-store";
 
 import Comment from "../commentsHere";
+// eslint-disable-next-line import/named
 import { initialState } from "../../../redux/reducers/commentReducer";
 
 Enzyme.configure({ adapter: new Adapter() });

@@ -13,7 +13,7 @@ import { forgotPassword } from "./passwordReset/forgotPassword";
 import getArticlesReducer from "./getArticlesReducer";
 import getOneArticleReducer from "./getOneArticleReducer";
 import createArticlesReducer from "./articles/createArticlesReducer";
-import { ratingReducer } from "../reducers/rating/rating";
+import { ratingReducer } from "./rating/rating";
 import commentListReducer from "./commentReducer";
 
 const rootReducer = combineReducers({
