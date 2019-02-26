@@ -1,8 +1,9 @@
 import axios from "axios";
+import { BASE_URL } from "../actions/constants";
 
 const token = localStorage.getItem("token");
 const urlPath = axios.create({
-  baseURL: process.env.BASE_URL,
+  baseURL: `${BASE_URL}/`,
   headers: {
     "Content-Type": "application/json",
     Authorization: `${token}`

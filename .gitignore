@@ -28,4 +28,6 @@ src/**/*.css
 
 # snapshots
 */__snapshots__
-*.snap 
+*.snap
+#Ignore editor settings
+.vscode/

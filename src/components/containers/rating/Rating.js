@@ -18,7 +18,7 @@ class ArticleRating extends Component {
   render() {
     return (
       <Rating
-        defaultRating={this.state.myRating}
+        defaultRating={this.props.rating}
         disabled={this.props.disabled || false}
         maxRating={this.state.maxRating}
         onRate={this.handleRate}

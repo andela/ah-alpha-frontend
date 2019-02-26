@@ -26,7 +26,6 @@ const Login = () => (
       <SocialAuthComponent />
     </div>
   </Modal>
-
 );
 
 export default Login;

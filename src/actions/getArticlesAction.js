@@ -1,5 +1,5 @@
 import axios from "axios";
-import { BASE_URL } from "../actions/constants";
+import { BASE_URL } from "./constants";
 import {
   GET_ARTICLES_ERROR,
   GET_ARTICLES_REQUEST,
@@ -23,7 +23,7 @@ const successOnLoad = successPayload => ({
   isLoading: false
 });
 
-const getArticles = (page = 1, page_size = 15) => async dispatch => {
+const getArticles = (page = 1, page_size = 15) => async (dispatch) => {
   dispatch(loadingResource());
   try {
     const response = await axios.get(

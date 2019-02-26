@@ -3,8 +3,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import RegistrationModal from "../containers/registration/Registration";
 import Login from "../authentication/Login";
-import { logout } from "../../_helpers/history";
-import DropdownImageTriggerExample from "./userOptions";
+import DropDown from "./userOptions";
 
 // eslint-disable-next-line react/prefer-stateless-function
 class Navbar extends React.Component {
@@ -22,8 +21,8 @@ class Navbar extends React.Component {
                 <input type="text" placeholder="Search..." />
               </div>
             </div>
-            {!localStorage.getItem("token")
-            || localStorage.getItem("token") === undefined ? (
+            {!localStorage.getItem("token") ||
+            localStorage.getItem("token") === undefined ? (
               <React.Fragment>
                 <button type="button" className="item link-button" id="login">
                   <Login />
@@ -33,18 +32,7 @@ class Navbar extends React.Component {
                 </button>
               </React.Fragment>
             ) : (
-              <React.Fragment>
-                <button
-                  type="button"
-                  className="item link-button"
-                  id="logout"
-                  onClick={logout}
-                >
-                  <br />
-                  Logout
-                </button>
-                <DropdownImageTriggerExample />
-              </React.Fragment>
+              <DropDown />
             )}
           </div>
         </div>
