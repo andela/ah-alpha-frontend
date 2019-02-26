@@ -38,7 +38,8 @@ describe("reducers", () => {
       ratingReducer: {},
       registration: {},
       socialAuth: { message: "" },
-      verification: {}
+      verification: {},
+      userArticles: { isFetching: false }
     });
   });
 });

@@ -6,7 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import configureStore from "redux-mock-store";
 import thunk from "redux-thunk";
-import { Pagination, PaginationItem } from "semantic-ui-react";
+import { Pagination } from "semantic-ui-react";
 
 import { GetArticles } from "../Articles";
 import getArticles from "../../../../actions/getArticlesAction";
@@ -37,7 +37,7 @@ describe("Get all articles", () => {
 describe("Get component being rendered", () => {
   it("should be a get articles component", () => {
     const tree = shallow(
-      <GetArticles getArticles={getArticles}/>
+      <GetArticles getArticles={getArticles} />
     );
     expect(tree).toMatchSnapshot();
   });
@@ -52,7 +52,6 @@ describe("should change active page", () => {
     });
     const secondItem = mountedComponent.find(".item").at(1);
     secondItem.simulate("click", 2);
-    // mountedComponent.instance().handlePaginationChange(2);
     expect(mountedComponent.state("activePage")).toEqual(1);
   });
 });

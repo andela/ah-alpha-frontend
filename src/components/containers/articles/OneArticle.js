@@ -11,6 +11,7 @@ import moment from "moment";
 import { PropTypes } from "prop-types";
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import { Icon } from "semantic-ui-react";
 import FollowButton from "../Follow/followButton";
 import getOneArticle from "../../../actions/getOneArticleAction";
@@ -75,9 +76,9 @@ export class GetOneArticle extends Component {
                         || localStorage.getItem("token") === undefined ? (
                           <div />
                           ) : localStorage.getItem("username") === article.author.username ? (
-                            <button className="ui black medium button follow-button edit-button">
-                            Edit
-                            </button>
+                            <Link to={`/${this.props.props.match.params.slug}/edit`} id="the-btn">
+                              <button className="ui black medium button follow-button edit-button">Edit</button>
+                            </Link>
                           ) : (
                             <FollowButton
                               following={this.props.following}

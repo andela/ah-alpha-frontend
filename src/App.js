@@ -20,6 +20,8 @@ import SuccessComponent from "./components/authentication/socialAuth/SuccessComp
 import ResetForm from "./components/containers/passwordReset/ForgotPassword";
 import ResetPassword from "./components/containers/passwordReset/ResetPassword";
 import createArticles from "./components/containers/articles/CreateArticles";
+import EditArticles from "./components/containers/articles/EditArticle";
+import UserArticles from "./components/containers/articles/UserArticles";
 
 import "./assets/css/App.scss";
 import "./assets/css/reset.scss";
@@ -46,6 +48,8 @@ const App = () => (
             <Route path="/forgotpwd" component={ResetForm} />
             <Route path="/reset-password/:resetpwdtoken" component={ResetPassword} />
             <Route exact path="/create-article" component={createArticles} />
+            <Route path="/:slug/edit" component={EditArticles} />
+            <Route path="/your-articles" component={UserArticles} />
             <Route path="/:slug" exact component={OneArticle} />
           </Switch>
         </div>
