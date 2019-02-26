@@ -106,6 +106,12 @@ export class GetArticles extends Component {
                                     "YYYYMMDD"
                                   ).fromNow()}
                                 </span>
+                                <br />
+                                <Icon name="clock" size="large" />
+                                <span className="read">
+                                  {article.read_time.substr(3, 1)}
+                                  min read
+                                </span>
                                 <div className="pull-right">
                                   {article.rating}
                                   <i className="yellow star icon" />

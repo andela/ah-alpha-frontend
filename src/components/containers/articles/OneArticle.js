@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable react/button-has-type */
 /* eslint-disable no-nested-ternary */
 /* eslint-disable react/default-props-match-prop-types */
@@ -96,7 +97,14 @@ export class GetOneArticle extends Component {
                   <Icon name="star" size="large" className="star-icon" />
                   {article.rating ? parseFloat(article.rating).toFixed(1) : <span />}
                   <br />
-                  <span className="read-time"> {moment(article.created_at).format("MMM Do")}</span>
+                  <br />
+                  <Icon name="clock" size="large" id="clock" />
+                  <span id="read">
+                    {article.read_time.substr(3, 1)}
+                    min
+                  </span>
+                  <span className="read-time"> {moment(article.created_at).format("MMM Do")}</span><br />
+                  <br />
                 </div>
               </div>
               <div className="intro-image">
