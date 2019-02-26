@@ -68,4 +68,14 @@ describe("<Comment />", () => {
     // eslint-disable-next-line no-unused-expressions
     expect(img).toBeTruthy;
   });
+  it("renders the name of the user", () => {
+    const username = wrapper.find("author");
+    // eslint-disable-next-line no-unused-expressions
+    expect(username).toBeTruthy;
+  });
+  it("renders the comment body", () => {
+    const body = wrapper.find("comment-body");
+    // eslint-disable-next-line no-unused-expressions
+    expect(body).toBeTruthy;
+  });
 });
