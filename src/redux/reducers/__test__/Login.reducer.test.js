@@ -4,12 +4,18 @@ describe("reducers", () => {
   it("should test the reducer", () => {
     const state = reducers(undefined, {});
     expect(state).toEqual({
+      commentListReducer: { comments: [] },
       count: {
         followers: [],
         followers_count: 0,
         following: [],
         following_count: 0,
         isUser: false
+      },
+      createArticles: {
+        article: [],
+        error: [],
+        tags: []
       },
       data: {
         errors: {},
@@ -31,13 +37,8 @@ describe("reducers", () => {
       },
       ratingReducer: {},
       registration: {},
-      verification: {},
       socialAuth: { message: "" },
-      createArticles: {
-        article: [],
-        error: [],
-        tags: []
-      }
+      verification: {}
     });
   });
 });
