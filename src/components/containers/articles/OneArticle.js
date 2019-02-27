@@ -17,6 +17,7 @@ import FollowButton from "../Follow/followButton";
 import getOneArticle from "../../../actions/getOneArticleAction";
 import ArticleRating from "../rating/Rating";
 import CommentsContainer from "../commentsContainer";
+import ArticleLiking from "../likes/ArticleLiking";
 
 export class GetOneArticle extends Component {
   constructor() {
@@ -50,6 +51,7 @@ export class GetOneArticle extends Component {
     }
     // eslint-disable-next-line react/destructuring-assignment
     const { article } = this.props.fetchOneArticle;
+    const loggedOut = !localStorage.getItem("token") || localStorage.getItem("token") === undefined;
     return (
       <div>
         {this.state.isLoading ? (
@@ -72,19 +74,20 @@ export class GetOneArticle extends Component {
                       />
                       <div className="name-follow">
                         <h4 className="user-username"> {article.author.username}</h4>
-                        {!localStorage.getItem("token")
-                        || localStorage.getItem("token") === undefined ? (
+                        {loggedOut ? (
                           <div />
-                          ) : localStorage.getItem("username") === article.author.username ? (
-                            <Link to={`/${this.props.props.match.params.slug}/edit`} id="the-btn">
-                              <button className="ui black medium button follow-button edit-button">Edit</button>
-                            </Link>
-                          ) : (
-                            <FollowButton
-                              following={this.props.following}
-                              author={article.author.username}
-                            />
-                          )}
+                        ) : localStorage.getItem("username") === article.author.username ? (
+                          <Link to={`/${this.props.props.match.params.slug}/edit`} id="the-btn">
+                            <button className="ui black medium button follow-button edit-button">
+                              Edit
+                            </button>
+                          </Link>
+                        ) : (
+                          <FollowButton
+                            following={this.props.following}
+                            author={article.author.username}
+                          />
+                        )}
                       </div>
                     </div>
                     <br />
@@ -104,7 +107,8 @@ export class GetOneArticle extends Component {
                     {article.read_time.substr(3, 1)}
                     min
                   </span>
-                  <span className="read-time"> {moment(article.created_at).format("MMM Do")}</span><br />
+                  <span className="read-time"> {moment(article.created_at).format("MMM Do")}</span>
+                  <br />
                   <br />
                 </div>
               </div>
@@ -133,15 +137,36 @@ export class GetOneArticle extends Component {
                   }
                 </ul> <br />
                 <br />
-                {!localStorage.getItem("token") || localStorage.getItem("token") === undefined ? (
-                  <div />
-                ) : localStorage.getItem("username") === article.author.username ? (
-                  <div />
-                ) : (
-                  <span className="rating-bar">
-                    <ArticleRating slug={article.slug} size="massive" rating={article.my_rating} />
+                <div className="rate-like">
+                  <span>
+                    {loggedOut ? (
+                      <div />
+                    ) : localStorage.getItem("username") === article.author.username ? (
+                      <div />
+                    ) : (
+                      <span className="rating-bar">
+                        <ArticleRating
+                          slug={article.slug}
+                          size="massive"
+                          rating={article.my_rating}
+                        />
+                      </span>
+                    )}
                   </span>
-                )}
+                  <span className="like-dislike-buttons">
+                    {!loggedOut ? (
+                      <ArticleLiking
+                        slug={article.slug}
+                        status={article.like_status}
+                        dislike_count={article.dislike_count}
+                        like_count={article.like_count}
+                      />
+                    ) : (
+                      ""
+                    )}
+                  </span>
+                </div>
+                <br />
                 <CommentsContainer slug={this.props.props.match.params.slug} />
               </div>
             </div>

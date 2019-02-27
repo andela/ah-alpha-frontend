@@ -2,7 +2,6 @@
 /* eslint-disable import/no-named-as-default-member */
 /* eslint-disable import/no-named-as-default */
 import { combineReducers } from "redux";
-
 import loginReducer from "./loginReducer";
 import { registration, verification } from "./registration";
 import socialAuthFunction from "./socialAuth/SocialAuthReducer";
@@ -16,6 +15,7 @@ import createArticlesReducer from "./articles/createArticlesReducer";
 import { ratingReducer } from "./rating/rating";
 import commentListReducer from "./commentReducer";
 import userArticlesReducer from "./articles/userArticlesReducer";
+import likesReducer from "./likes/likes";
 
 const rootReducer = combineReducers({
   registration,
@@ -31,7 +31,8 @@ const rootReducer = combineReducers({
   createArticles: createArticlesReducer,
   ratingReducer,
   commentListReducer,
-  userArticles: userArticlesReducer
+  userArticles: userArticlesReducer,
+  likesReducer
 });
 
 export default rootReducer;

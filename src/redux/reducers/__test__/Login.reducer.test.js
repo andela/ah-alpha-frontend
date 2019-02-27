@@ -27,6 +27,7 @@ describe("reducers", () => {
       fetchArticles: {},
       fetchOneArticle: {},
       forgotPassword: {},
+      likesReducer: {},
       passwordReset: {},
       profiles: {
         errors: {},

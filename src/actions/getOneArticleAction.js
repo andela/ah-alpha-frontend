@@ -9,8 +9,14 @@ import {
 
 // eslint-disable-next-line
 const getOneArticle = slug => async dispatch => {
+  const token = localStorage.getItem("token");
   await axios
-    .get(`${BASE_URL}/api/v1/articles/${slug}/`)
+    .get(`${BASE_URL}/api/v1/articles/${slug}/`, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `${token}`
+      }
+    })
     .then((response) => {
       dispatch({
         type: GET_ONE_ARTICLE_SUCCESS,

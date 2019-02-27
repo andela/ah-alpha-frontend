@@ -357,18 +357,6 @@ $primary-color: black;
   align-self: center !important;
 }
 
-.footer {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  text-align: center !important;
-  border-top: "1px solid #E7E7E7";
-  text-align: "center";
-  left: "0";
-  bottom: "0";
-  height: "60px";
-  width: "100%";
-}
 .header {
   text-transform: capitalize;
 }
@@ -395,4 +383,13 @@ img.ui.avatar.image {
 
 .rating-bar {
   margin: 1em 0 2em 0 !important;
+}
+.like-dislike-buttons {
+  margin-left: 30% !important;
+}
+
+.rate-like {
+  display: flex;
+  flex-direction: row;
+  align-items: space-around;
 }
