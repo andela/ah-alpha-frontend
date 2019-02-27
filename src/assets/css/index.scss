@@ -82,6 +82,11 @@ a:hover {
   width: 750px;
 }
 
+.body p img {
+  width: 750px;
+  padding: 20px 0;
+  }
+
 .legend {
   background: transparent;
   border: 1px;
@@ -392,4 +397,8 @@ img.ui.avatar.image {
   display: flex;
   flex-direction: row;
   align-items: space-around;
+}
+
+.no-rating {
+  padding-right: 180px;
 }

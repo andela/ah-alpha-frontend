@@ -18,6 +18,7 @@ import getOneArticle from "../../../actions/getOneArticleAction";
 import ArticleRating from "../rating/Rating";
 import CommentsContainer from "../commentsContainer";
 import ArticleLiking from "../likes/ArticleLiking";
+import SocialShare from "../sharing";
 
 export class GetOneArticle extends Component {
   constructor() {
@@ -111,6 +112,7 @@ export class GetOneArticle extends Component {
                   <br />
                   <br />
                 </div>
+                <SocialShare slug={article.slug} title={article.title} author={article.author.username} />
               </div>
               <div className="intro-image">
                 {!article.image_path ? (
@@ -142,7 +144,7 @@ export class GetOneArticle extends Component {
                     {loggedOut ? (
                       <div />
                     ) : localStorage.getItem("username") === article.author.username ? (
-                      <div />
+                      <div className="no-rating" />
                     ) : (
                       <span className="rating-bar">
                         <ArticleRating
