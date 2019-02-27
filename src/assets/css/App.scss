@@ -117,7 +117,7 @@ $primary-color: black;
 
 .tags .tag {
   float: left;
-  border: 1px solid rgb(173, 171, 171);
+  border: none;
   border-radius: 5px;
   padding: 2px;
   color: grey;
@@ -134,8 +134,9 @@ $primary-color: black;
 .mini-tags .mini-tag {
   float: left;
   border: 1px solid rgb(173, 171, 171);
-  padding: 2px;
+  padding: 7px;
   border-radius: 5px;
+  margin-left: 15px;
   color: grey;
   background: rgb(233, 233, 233);
   transition: all 0.3s;
@@ -202,6 +203,14 @@ $primary-color: black;
 }
 #read{
   padding-left: 3%; 
+}
+
+#cardsize{ 
+  height: 200px;
+}
+
+#cd-content{
+  height: 160px;
 }
 
 .userArticlesCards{
