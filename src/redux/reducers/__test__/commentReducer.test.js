@@ -25,7 +25,6 @@ const fakeCommenttwo = {
 const fakeComments = {
   errors: "error"
 };
-
 const fetchCommentsAction = {
   type: types.FETCH_COMMENTS,
   payload: [fakeComment]
@@ -44,6 +43,12 @@ const FailedCommentAction = {
   type: types.ADD_COMMENT_FAILURE,
   payload: fakeCommenttwo
 
+};
+const deleteCommentsAction = {
+  type: types.DELETE_COMMENT_SUCCESS
+};
+const faildeleteComments = {
+  type: types.DELETE_COMMENT_FAILURE
 };
 
 it("should handle FETCH_COMMENTS by inserting all existing comments into state", () => {
@@ -71,5 +76,17 @@ it("should handle FETCH_COMMENTS_FAILURE by raising an error", () => {
     ...initialState,
     comments: [],
     errors: [{ errors: "error" }]
+  });
+});
+it("should handle DELETE_COMMENT_SUCCESS ", () => {
+  expect(commentListReducer(initialState, deleteCommentsAction)).toEqual({
+    ...initialState,
+    comments: []
+  });
+});
+it("should handle DELETE_COMMENT_FAILURE ", () => {
+  expect(commentListReducer(initialState, faildeleteComments)).toEqual({
+    ...initialState,
+    comments: []
   });
 });

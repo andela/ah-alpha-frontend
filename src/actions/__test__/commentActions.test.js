@@ -59,4 +59,21 @@ describe("Comment Actions", () => {
     };
     expect(actiontest.addCommentFailure(errors)).toEqual(expectedAction);
   });
+  it("should dispatch DELETE_COMMENT_SUCCESS after successfuly deleting a comment", () => {
+    // display empty list after deleting comment
+    const comments = [];
+    const expectedAction = {
+      type: types.DELETE_COMMENT_SUCCESS,
+      payload: comments
+    };
+    expect(actions.deleteCommentsSuccess(comments)).toEqual(expectedAction);
+  });
+  it("should dispatch DELETE_COMMENT_FAILURE after failing to delete a comment", () => {
+    const comments = [];
+    const expectedAction = {
+      type: types.DELETE_COMMENT_FAILURE,
+      payload: comments
+    };
+    expect(actions.deleteCommentsFailure(comments)).toEqual(expectedAction);
+  });
 });

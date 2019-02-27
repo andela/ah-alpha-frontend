@@ -5,7 +5,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import Comment from "../comment/commentsHere";
-import { fetchComments } from "../../actions/commentActions";
+// eslint-disable-next-line no-unused-vars
+import { fetchComments, deleteComment } from "../../actions/commentActions";
 import AddCommentComponent from "../comment/addComment";
 
 class CommentsContainer extends Component {
@@ -20,7 +21,7 @@ class CommentsContainer extends Component {
       <div>
         <h3 className="ui dividing header">Comments</h3>
         {comments.map(comment => (
-          <Comment key={comment.id} comment={comment} />
+          <Comment key={comment.id} slug={slug} comment={comment} />
         )) }
         <AddCommentComponent slug={slug} />
       </div>
