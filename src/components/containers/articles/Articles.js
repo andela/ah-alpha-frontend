@@ -85,9 +85,9 @@ export class GetArticles extends Component {
                     {this.state.articles.map(article => (
                       <div className="single-card">
                         <div className="column fluid" key={article.slug}>
-                          <Card size="massive">
-                            <Image src={article.image_path} />
-                            <Card.Content>
+                          <Card size="massive" id="cd-size">
+                            <Image id="cardsize" src={article.image_path} />
+                            <Card.Content id="cd-content">
                               <Card.Header>
                                 <Link
                                   to={{
@@ -96,7 +96,7 @@ export class GetArticles extends Component {
                                   }}
                                 >
                                   {article.title}
-                                </Link>
+                                </Link><br /><br />
                               </Card.Header>
                               <Card.Meta>
                                 <span className="small date">
@@ -106,30 +106,17 @@ export class GetArticles extends Component {
                                     "YYYYMMDD"
                                   ).fromNow()}
                                 </span>
-                                <br />
+                                <br /><br />
                                 <Icon name="clock" size="large" />
                                 <span className="read">
                                   {article.read_time.substr(3, 1)}
                                   min read
                                 </span>
                                 <div className="pull-right">
-                                  {article.rating}
+                                  {parseFloat(article.rating).toFixed(1)}
                                   <i className="yellow star icon" />
                                 </div>
                               </Card.Meta>
-                            </Card.Content>
-                            <Card.Content extra>
-                              <ul className="tags">
-                                {article.tags.length === 0 ? (
-                                  <li>No tags</li>
-                                ) : (
-                                  article.tags.map(tag => (
-                                    <li key={tag} className="tag">
-                                      {tag}
-                                    </li>
-                                  ))
-                                )}
-                              </ul>
                             </Card.Content>
                           </Card>
                         </div>

@@ -128,12 +128,10 @@ export class GetOneArticle extends Component {
                 <br />
                 <div className="body"> {Parser(article.body)}</div>
                 <ul className="mini-tags">
-                  {article.tags.length === 0 ? (
-                    <div> No tags </div>
-                  ) : (
+                  {
                     article.tags.map(tag => <li className="mini-tag"> {tag}</li>)
-                  )}
-                </ul>
+                  }
+                </ul> <br />
                 <br />
                 {!localStorage.getItem("token") || localStorage.getItem("token") === undefined ? (
                   <div />
