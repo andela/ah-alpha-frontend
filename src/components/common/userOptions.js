@@ -35,6 +35,12 @@ const options = [
     href: "/profile"
   },
   {
+    key: "your-articles",
+    text: "Articles",
+    icon: "file",
+    href: "/your-articles"
+  },
+  {
     key: "create-article",
     text: "New article",
     icon: "write",

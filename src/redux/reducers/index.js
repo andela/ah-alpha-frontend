@@ -15,6 +15,7 @@ import getOneArticleReducer from "./getOneArticleReducer";
 import createArticlesReducer from "./articles/createArticlesReducer";
 import { ratingReducer } from "./rating/rating";
 import commentListReducer from "./commentReducer";
+import userArticlesReducer from "./articles/userArticlesReducer";
 
 const rootReducer = combineReducers({
   registration,
@@ -29,7 +30,8 @@ const rootReducer = combineReducers({
   fetchOneArticle: getOneArticleReducer,
   createArticles: createArticlesReducer,
   ratingReducer,
-  commentListReducer
+  commentListReducer,
+  userArticles: userArticlesReducer
 });
 
 export default rootReducer;
