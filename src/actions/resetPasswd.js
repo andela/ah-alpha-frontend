@@ -14,7 +14,6 @@ const resetPassword = data => (dispatch) => {
       method: "patch",
       url: `users/password_reset/${data.token}`,
       data: { user: { password: data.password } }
-
     })
     .then((res) => {
       dispatch(success(res.data.user.message));
