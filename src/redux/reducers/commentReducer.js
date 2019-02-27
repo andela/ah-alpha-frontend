@@ -6,7 +6,8 @@ import {
   ADD_COMMENT_FAILURE,
   ADD_COMMENT,
   DELETE_COMMENT_SUCCESS,
-  DELETE_COMMENT_FAILURE
+  DELETE_COMMENT_FAILURE,
+  EDIT_COMMENT, EDIT_COMMENT_FAILURE
 } from "../../actions/types";
 
 const initialState = {
@@ -36,6 +37,18 @@ const commentListReducer = (state = initialState, action) => {
       );
 
     case ADD_COMMENT_FAILURE:
+      return {
+        errors: action.payload
+      };
+    case EDIT_COMMENT:
+      const updatedComments = state.comments.map(comm => (comm.id !== +action.payload.id ? comm
+        : action.payload));
+      return Object.assign(
+        {},
+        state,
+        { comments: [...updatedComments] }
+      );
+    case EDIT_COMMENT_FAILURE:
       return {
         errors: action.payload
       };
