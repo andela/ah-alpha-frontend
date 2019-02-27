@@ -7,15 +7,17 @@ import { toast } from "react-toastify";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
-import { addComment } from "../../actions/postCommentActions";
+import { editComment } from "../../actions/postCommentActions";
 
 // Need to be globally available
 let elem = "";
 let errorSubscript = "";
+// eslint-disable-next-line no-var
 
-class AddCommentComponent extends Component {
+class EditCommentComponent extends Component {
   state = {
-    comment: "",
+    comment: this.props.body,
+    onEditClick: this.props.onEditClick,
     // eslint-disable-next-line react/no-unused-state
     isDisabled: true
   }
@@ -31,7 +33,7 @@ class AddCommentComponent extends Component {
     // Validate input
     if (elem.value !== "") {
       // eslint-disable-next-line no-shadow
-      const { addComment, slug } = this.props;
+      const { editComment, slug, commentID } = this.props;
       const { comment } = this.state;
       // Format comment as API expects
       const newComment = {
@@ -40,9 +42,8 @@ class AddCommentComponent extends Component {
         }
       };
 
-      addComment(newComment, slug);
-      // eslint-disable-next-line max-len
-      this.setState({ comment: "" });
+      editComment(newComment, slug, commentID);
+      this.state.onEditClick();
     } else {
       errorSubscript.innerHTML = "This field may not be blank";
     }
@@ -54,7 +55,8 @@ class AddCommentComponent extends Component {
       || localStorage.getItem("token") === undefined ? (
         toast.error("Login to Comment")
       ) : (
-        this.onCommentSubmit()
+        this.onCommentSubmit(),
+        this.state.onEditClick()
       ); }
   }
 
@@ -63,7 +65,7 @@ class AddCommentComponent extends Component {
       <form
         className="ui reply form"
         action=""
-        method="post"
+        method="put"
       >
         <div className="field">
           <textarea
@@ -71,28 +73,17 @@ class AddCommentComponent extends Component {
             value={this.state.comment}
             onChange={this.onCommentInput}
             onFocus={this.onCommentInput}
-            placeholder="Enter comment..."
           />
           <div>
             <br />
-            {this.state.comment === "" ? (
-              <button
-                className="ui medium basic black button disabled"
-                type="button"
-              >
-                <i className="sign in icon" />
-                Add Comment
-              </button>
-            ) : (
-              <button
-                className="ui medium basic black button"
-                onClick={this.checkUser}
-                type="button"
-              >
-                <i className="sign in icon" />
-              Add Comment
-              </button>
-            )}
+            <button
+              className="ui medium basic black button"
+              type="button"
+              onClick={this.onCommentSubmit}
+            >
+              <i className="sign in icon" />
+              Edit Comment
+            </button>
           </div>
         </div>
       </form>
@@ -100,9 +91,8 @@ class AddCommentComponent extends Component {
   }
 }
 
-AddCommentComponent.propTypes = {
-  addComment: PropTypes.func.isRequired
+EditCommentComponent.propTypes = {
+  editComment: PropTypes.func.isRequired
 };
 
-// eslint-disable-next-line no-undef
-export default connect(null, { addComment })(AddCommentComponent);
+export default connect(null, { editComment })(EditCommentComponent);

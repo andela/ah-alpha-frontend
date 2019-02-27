@@ -18,12 +18,12 @@ class CommentsContainer extends Component {
   render() {
     const { comments, slug } = this.props;
     return (
-      <div>
+      <div className="comment-container">
         <h3 className="ui dividing header">Comments</h3>
+        <AddCommentComponent slug={slug} />
         {comments.map(comment => (
           <Comment key={comment.id} slug={slug} comment={comment} />
         )) }
-        <AddCommentComponent slug={slug} />
       </div>
     );
   }

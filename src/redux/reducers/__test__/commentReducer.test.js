@@ -42,13 +42,36 @@ const addCommentAction = {
 const FailedCommentAction = {
   type: types.ADD_COMMENT_FAILURE,
   payload: fakeCommenttwo
-
 };
+
 const deleteCommentsAction = {
   type: types.DELETE_COMMENT_SUCCESS
 };
+
 const faildeleteComments = {
   type: types.DELETE_COMMENT_FAILURE
+};
+
+const fakeCommentEdited = {
+  id: 28,
+  author: {
+    First_name: "Malani",
+    Last_name: "Wachira",
+    bio: "Am a software developer",
+    company: "Andela",
+    created_at: "2019-02-21T15:40:59.667893Z",
+    following: false,
+    image: "",
+    location: "Kenya",
+    updated_at: "2019-02-21T15:58:31.008946Z",
+    username: "Malani"
+  },
+  body: "nolonger a fake body"
+};
+const editCommentAction = {
+  type: types.EDIT_COMMENT,
+  payload: fakeCommentEdited
+
 };
 
 it("should handle FETCH_COMMENTS by inserting all existing comments into state", () => {
@@ -88,5 +111,13 @@ it("should handle DELETE_COMMENT_FAILURE ", () => {
   expect(commentListReducer(initialState, faildeleteComments)).toEqual({
     ...initialState,
     comments: []
+  });
+});
+it("should handle EDIT_COMMENT by modifying a comment in state", () => {
+  // Add comment first
+  const state = commentListReducer(initialState, addCommentAction);
+  expect(commentListReducer(state, editCommentAction)).toEqual({
+    ...state,
+    comments: [fakeCommentEdited]
   });
 });

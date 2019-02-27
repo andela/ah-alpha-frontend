@@ -19,7 +19,6 @@ describe("rating reducer", () => {
         }
       )
     ).toEqual({
-      requesting: true
     });
 
     expect(
@@ -30,12 +29,8 @@ describe("rating reducer", () => {
         }
       )
     ).toEqual({
-      message: "success",
-      payload: undefined
     });
     expect(ratingReducer({}, { RATING_FAILURE })).toEqual({
-      requesting: false,
-      message: "failure"
     });
   });
 });
