@@ -37,7 +37,7 @@ export class UserArticles extends Component {
                   {moment(article.created_at, "YYYYMMDD").fromNow()}
                 </span>
               </Card.Meta>
-              <Card.Description>
+              <Card.Description className="titleCard">
                 <Link
                   to={{
                     pathname: `/${article.slug}`,

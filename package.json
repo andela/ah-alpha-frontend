@@ -51,6 +51,7 @@
     "react-scripts": "^2.1.5",
     "react-select": "^2.4.1",
     "react-semantic-toasts": "^0.4.1",
+    "react-share": "^2.4.0",
     "react-test-renderer": "^16.8.1",
     "react-toastify": "^4.5.2",
     "react-ultimate-pagination": "^1.2.0",

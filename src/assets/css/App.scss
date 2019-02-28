@@ -227,6 +227,39 @@ $primary-color: black;
     width: 100%;
     height: 200px;
 }
+
 .comment-container{
   padding-bottom: 120px;
+}
+
+.titleCard{
+  height: 50px;
+}
+
+#social-sharing{
+  position: fixed;
+  left: 5%;
+  top: 50%;
+}
+
+.socialIcon:hover{
+  -webkit-transform: rotateZ(720deg);
+  -moz-transform: rotateZ(720deg);
+  transform: rotateZ(720deg);
+
+}
+
+.share-icons{
+  padding-bottom: 10px;
+}
+
+.socialIcon{
+cursor: pointer;
+-webkit-transition: 0.3s ease-out;
+-moz-transition:  0.3s ease-out;
+transition:  0.3s ease-out;
+}
+
+#social-sharing .email circle{
+  fill: #ef5350;
 }
